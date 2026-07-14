@@ -11,8 +11,6 @@
   <meta property="og:image" content="https://cdn.flatfox.ch/listings/v2/f046im/4002916928/image/6f43d949a0825f8d9db59f66d70cab32.jpg">
   <meta property="og:type" content="website">
   <link rel="canonical" href="#">
-
-  <!-- Schema.org Structured Data -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -28,609 +26,213 @@
       "addressLocality": "Zürich",
       "addressCountry": "CH"
     },
-    "floorSize": {
-      "@type": "QuantitativeValue",
-      "value": 825,
-      "unitText": "m²"
-    }
+    "floorSize": { "@type": "QuantitativeValue", "value": 825, "unitText": "m²" }
   }
   </script>
-
-
   <style>
-    /* ===== RESET & BASE ===== */
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     html { scroll-behavior: smooth; font-size: 16px; }
-    body {
-      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-      background: #FAFAF8;
-      color: #1A1A2E;
-      line-height: 1.65;
-      -webkit-font-smoothing: antialiased;
-    }
+    body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: #FAFAF8; color: #1A1A2E; line-height: 1.65; -webkit-font-smoothing: antialiased; }
     img { max-width: 100%; height: auto; display: block; }
     a { color: inherit; text-decoration: none; }
     button { cursor: pointer; border: none; background: none; font-family: inherit; }
-
-    /* ===== TYPOGRAPHY ===== */
     h1, h2, h3, h4 { font-weight: 600; line-height: 1.2; letter-spacing: -0.02em; }
     h1 { font-size: clamp(2rem, 4vw, 3.5rem); }
     h2 { font-size: clamp(1.6rem, 3vw, 2.4rem); }
     h3 { font-size: clamp(1.1rem, 2vw, 1.4rem); }
-
-    /* ===== COLORS ===== */
     :root {
-      --navy: #0C1B33;
-      --navy-mid: #1E3A5F;
-      --gold: #B8973A;
-      --gold-light: #D4AF56;
-      --cream: #FAFAF8;
-      --gray-light: #F2F0EC;
-      --gray-mid: #E2DFD8;
-      --gray-text: #6B6B7B;
-      --white: #FFFFFF;
-      --radius: 6px;
-      --shadow: 0 4px 24px rgba(12,27,51,0.08);
-      --shadow-lg: 0 12px 48px rgba(12,27,51,0.14);
+      --navy: #0C1B33; --navy-mid: #1E3A5F; --gold: #B8973A; --gold-light: #D4AF56;
+      --cream: #FAFAF8; --gray-light: #F2F0EC; --gray-mid: #E2DFD8; --gray-text: #6B6B7B;
+      --white: #FFFFFF; --radius: 6px;
+      --shadow: 0 4px 24px rgba(12,27,51,0.08); --shadow-lg: 0 12px 48px rgba(12,27,51,0.14);
     }
-
-    /* ===== STICKY NAV ===== */
-    .nav {
-      position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
-      background: rgba(12,27,51,0.97);
-      backdrop-filter: blur(12px);
-      -webkit-backdrop-filter: blur(12px);
-      border-bottom: 1px solid rgba(184,151,58,0.2);
-      transition: all 0.3s ease;
-    }
-    .nav-inner {
-      max-width: 1280px; margin: 0 auto;
-      padding: 0 2rem;
-      height: 70px;
-      display: flex; align-items: center; justify-content: space-between;
-    }
-    .nav-logo {
-      display: flex; align-items: center; gap: 0.75rem;
-    }
-    .nav-logo-badge {
-      width: 36px; height: 36px; background: var(--gold);
-      border-radius: 4px;
-      display: flex; align-items: center; justify-content: center;
-    }
+    .nav { position: fixed; top: 0; left: 0; right: 0; z-index: 1000; background: rgba(12,27,51,0.97); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); border-bottom: 1px solid rgba(184,151,58,0.2); transition: all 0.3s ease; }
+    .nav-inner { max-width: 1280px; margin: 0 auto; padding: 0 2rem; height: 70px; display: flex; align-items: center; justify-content: space-between; }
+    .nav-logo { display: flex; align-items: center; gap: 0.75rem; }
+    .nav-logo-badge { width: 36px; height: 36px; background: var(--gold); border-radius: 4px; display: flex; align-items: center; justify-content: center; }
     .nav-logo-badge svg { width: 20px; height: 20px; color: white; }
     .nav-logo-text { color: white; font-size: 0.85rem; font-weight: 500; letter-spacing: 0.05em; text-transform: uppercase; }
     .nav-logo-sub { color: rgba(255,255,255,0.5); font-size: 0.7rem; display: block; }
     .nav-links { display: flex; align-items: center; gap: 2rem; }
     .nav-links a { color: rgba(255,255,255,0.75); font-size: 0.85rem; font-weight: 500; letter-spacing: 0.02em; transition: color 0.2s; }
     .nav-links a:hover { color: var(--gold-light); }
-    .nav-cta {
-      background: var(--gold);
-      color: white;
-      padding: 0.55rem 1.4rem;
-      border-radius: var(--radius);
-      font-size: 0.82rem;
-      font-weight: 600;
-      letter-spacing: 0.04em;
-      text-transform: uppercase;
-      transition: background 0.2s, transform 0.15s;
-    }
+    .nav-cta { background: var(--gold); color: white; padding: 0.55rem 1.4rem; border-radius: var(--radius); font-size: 0.82rem; font-weight: 600; letter-spacing: 0.04em; text-transform: uppercase; transition: background 0.2s, transform 0.15s; }
     .nav-cta:hover { background: var(--gold-light); transform: translateY(-1px); }
     .nav-hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 4px; }
     .nav-hamburger span { display: block; width: 24px; height: 2px; background: white; border-radius: 2px; transition: all 0.3s; }
-
-    /* ===== HERO ===== */
-    .hero {
-      position: relative; min-height: 100vh;
-      display: flex; align-items: flex-end;
-      overflow: hidden;
-    }
-    .hero-bg {
-      position: absolute; inset: 0;
-      background-image: url('https://cdn.flatfox.ch/listings/v2/f046im/4002916928/image/6f43d949a0825f8d9db59f66d70cab32.jpg');
-      background-size: cover; background-position: center;
-      transform: scale(1.05);
-      transition: transform 8s ease;
-    }
-    .hero-bg::after {
-      content: '';
-      position: absolute; inset: 0;
-      background: linear-gradient(to bottom,
-        rgba(12,27,51,0.3) 0%,
-        rgba(12,27,51,0.2) 30%,
-        rgba(12,27,51,0.65) 70%,
-        rgba(12,27,51,0.92) 100%
-      );
-    }
-    .hero-content {
-      position: relative; z-index: 1;
-      max-width: 1280px; margin: 0 auto; width: 100%;
-      padding: 8rem 2rem 5rem;
-    }
-    .hero-label {
-      display: inline-flex; align-items: center; gap: 0.5rem;
-      background: rgba(184,151,58,0.15);
-      border: 1px solid rgba(184,151,58,0.4);
-      color: var(--gold-light);
-      font-size: 0.75rem; font-weight: 600;
-      letter-spacing: 0.12em; text-transform: uppercase;
-      padding: 0.4rem 1rem; border-radius: 2rem;
-      margin-bottom: 1.5rem;
-    }
+    .hero { position: relative; min-height: 100vh; display: flex; align-items: flex-end; overflow: hidden; }
+    .hero-bg { position: absolute; inset: 0; background-image: url('https://cdn.flatfox.ch/listings/v2/f046im/4002916928/image/6f43d949a0825f8d9db59f66d70cab32.jpg'); background-size: cover; background-position: center; transform: scale(1.05); }
+    .hero-bg::after { content: ''; position: absolute; inset: 0; background: linear-gradient(to bottom, rgba(12,27,51,0.3) 0%, rgba(12,27,51,0.2) 30%, rgba(12,27,51,0.65) 70%, rgba(12,27,51,0.92) 100%); }
+    .hero-content { position: relative; z-index: 1; max-width: 1280px; margin: 0 auto; width: 100%; padding: 8rem 2rem 5rem; }
+    .hero-label { display: inline-flex; align-items: center; gap: 0.5rem; background: rgba(184,151,58,0.15); border: 1px solid rgba(184,151,58,0.4); color: var(--gold-light); font-size: 0.75rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; padding: 0.4rem 1rem; border-radius: 2rem; margin-bottom: 1.5rem; }
     .hero-label::before { content: ''; width: 6px; height: 6px; background: var(--gold-light); border-radius: 50%; }
     .hero h1 { color: white; max-width: 780px; margin-bottom: 1rem; }
     .hero-sub { color: rgba(255,255,255,0.75); font-size: clamp(1rem, 1.5vw, 1.2rem); max-width: 560px; margin-bottom: 3rem; font-weight: 400; }
-    .hero-facts {
-      display: grid; grid-template-columns: repeat(4, 1fr);
-      gap: 1px; background: rgba(255,255,255,0.12);
-      border: 1px solid rgba(255,255,255,0.12);
-      border-radius: var(--radius);
-      overflow: hidden; margin-bottom: 2.5rem; max-width: 720px;
-    }
-    .hero-fact {
-      background: rgba(12,27,51,0.6);
-      backdrop-filter: blur(8px);
-      padding: 1.2rem 1.4rem;
-      transition: background 0.2s;
-    }
+    .hero-facts { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1px; background: rgba(255,255,255,0.12); border: 1px solid rgba(255,255,255,0.12); border-radius: var(--radius); overflow: hidden; margin-bottom: 2.5rem; max-width: 720px; }
+    .hero-fact { background: rgba(12,27,51,0.6); backdrop-filter: blur(8px); padding: 1.2rem 1.4rem; transition: background 0.2s; }
     .hero-fact:hover { background: rgba(12,27,51,0.8); }
     .hero-fact-label { color: rgba(255,255,255,0.5); font-size: 0.7rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 0.35rem; }
     .hero-fact-value { color: white; font-size: 1.05rem; font-weight: 600; }
     .hero-actions { display: flex; gap: 1rem; flex-wrap: wrap; }
-    .btn-primary {
-      display: inline-flex; align-items: center; gap: 0.5rem;
-      background: var(--gold); color: white;
-      padding: 0.9rem 2rem; border-radius: var(--radius);
-      font-size: 0.9rem; font-weight: 600;
-      letter-spacing: 0.04em; text-transform: uppercase;
-      transition: all 0.2s; box-shadow: 0 4px 20px rgba(184,151,58,0.35);
-    }
+    .btn-primary { display: inline-flex; align-items: center; gap: 0.5rem; background: var(--gold); color: white; padding: 0.9rem 2rem; border-radius: var(--radius); font-size: 0.9rem; font-weight: 600; letter-spacing: 0.04em; text-transform: uppercase; transition: all 0.2s; box-shadow: 0 4px 20px rgba(184,151,58,0.35); }
     .btn-primary:hover { background: var(--gold-light); transform: translateY(-2px); box-shadow: 0 8px 28px rgba(184,151,58,0.45); }
-    .btn-secondary {
-      display: inline-flex; align-items: center; gap: 0.5rem;
-      background: transparent; color: white;
-      border: 1.5px solid rgba(255,255,255,0.4);
-      padding: 0.9rem 2rem; border-radius: var(--radius);
-      font-size: 0.9rem; font-weight: 500;
-      letter-spacing: 0.04em; text-transform: uppercase;
-      transition: all 0.2s;
-    }
+    .btn-secondary { display: inline-flex; align-items: center; gap: 0.5rem; background: transparent; color: white; border: 1.5px solid rgba(255,255,255,0.4); padding: 0.9rem 2rem; border-radius: var(--radius); font-size: 0.9rem; font-weight: 500; letter-spacing: 0.04em; text-transform: uppercase; transition: all 0.2s; }
     .btn-secondary:hover { border-color: white; background: rgba(255,255,255,0.08); }
-    .hero-scroll {
-      position: absolute; bottom: 2.5rem; left: 50%;
-      transform: translateX(-50%); z-index: 1;
-      display: flex; flex-direction: column; align-items: center; gap: 0.5rem;
-      color: rgba(255,255,255,0.5); font-size: 0.7rem; letter-spacing: 0.1em; text-transform: uppercase;
-    }
-    .hero-scroll-line {
-      width: 1px; height: 40px; background: linear-gradient(to bottom, rgba(255,255,255,0.5), transparent);
-      animation: scrollPulse 2s ease-in-out infinite;
-    }
+    .hero-scroll { position: absolute; bottom: 2.5rem; left: 50%; transform: translateX(-50%); z-index: 1; display: flex; flex-direction: column; align-items: center; gap: 0.5rem; color: rgba(255,255,255,0.5); font-size: 0.7rem; letter-spacing: 0.1em; text-transform: uppercase; }
+    .hero-scroll-line { width: 1px; height: 40px; background: linear-gradient(to bottom, rgba(255,255,255,0.5), transparent); animation: scrollPulse 2s ease-in-out infinite; }
     @keyframes scrollPulse { 0%,100%{opacity:0.5;transform:scaleY(1)} 50%{opacity:1;transform:scaleY(1.2)} }
-
-    /* ===== SECTION BASE ===== */
     section { padding: 6rem 2rem; }
     .container { max-width: 1280px; margin: 0 auto; }
-    .section-label {
-      display: inline-flex; align-items: center; gap: 0.5rem;
-      color: var(--gold); font-size: 0.75rem; font-weight: 700;
-      letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 1rem;
-    }
+    .section-label { display: inline-flex; align-items: center; gap: 0.5rem; color: var(--gold); font-size: 0.75rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 1rem; }
     .section-label::before { content: ''; width: 24px; height: 1px; background: var(--gold); }
     .section-title { color: var(--navy); margin-bottom: 0.75rem; }
     .section-lead { color: var(--gray-text); font-size: 1.05rem; max-width: 560px; }
     .section-header { margin-bottom: 3.5rem; }
     .divider { width: 40px; height: 2px; background: var(--gold); margin: 1.25rem 0 0; }
-
-    /* ===== FADE-IN ANIMATIONS ===== */
     .fade-in { opacity: 0; transform: translateY(28px); transition: opacity 0.7s ease, transform 0.7s ease; }
     .fade-in.visible { opacity: 1; transform: none; }
-    .fade-in-delay-1 { transition-delay: 0.1s; }
-    .fade-in-delay-2 { transition-delay: 0.2s; }
-    .fade-in-delay-3 { transition-delay: 0.3s; }
-    .fade-in-delay-4 { transition-delay: 0.4s; }
-
-    /* ===== OBJEKT OVERVIEW ===== */
+    .fade-in-delay-1 { transition-delay: 0.1s; } .fade-in-delay-2 { transition-delay: 0.2s; } .fade-in-delay-3 { transition-delay: 0.3s; }
     .overview { background: var(--navy); }
     .overview .section-title, .overview .section-label { color: rgba(255,255,255,0.9); }
     .overview .section-label::before { background: var(--gold); }
     .overview .section-label { color: var(--gold-light); }
-    .overview-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
-      gap: 1px;
-      background: rgba(255,255,255,0.07);
-      border: 1px solid rgba(255,255,255,0.07);
-      border-radius: 8px;
-      overflow: hidden;
-    }
-    .ov-card {
-      background: rgba(255,255,255,0.03);
-      padding: 1.6rem 1.75rem;
-      display: flex; align-items: flex-start; gap: 1rem;
-      transition: background 0.2s;
-    }
+    .overview-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 1px; background: rgba(255,255,255,0.07); border: 1px solid rgba(255,255,255,0.07); border-radius: 8px; overflow: hidden; }
+    .ov-card { background: rgba(255,255,255,0.03); padding: 1.6rem 1.75rem; display: flex; align-items: flex-start; gap: 1rem; transition: background 0.2s; }
     .ov-card:hover { background: rgba(255,255,255,0.07); }
-    .ov-icon {
-      width: 42px; height: 42px; flex-shrink: 0;
-      background: rgba(184,151,58,0.12);
-      border: 1px solid rgba(184,151,58,0.25);
-      border-radius: 8px;
-      display: flex; align-items: center; justify-content: center;
-      color: var(--gold-light);
-    }
+    .ov-icon { width: 42px; height: 42px; flex-shrink: 0; background: rgba(184,151,58,0.12); border: 1px solid rgba(184,151,58,0.25); border-radius: 8px; display: flex; align-items: center; justify-content: center; color: var(--gold-light); }
     .ov-icon svg { width: 20px; height: 20px; }
     .ov-label { color: rgba(255,255,255,0.45); font-size: 0.72rem; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 0.3rem; }
     .ov-value { color: white; font-size: 0.97rem; font-weight: 500; }
     .ov-check { color: #4ADE80; font-size: 0.9rem; font-weight: 600; }
-    .ov-cross { color: rgba(255,255,255,0.3); font-size: 0.9rem; }
-
-    /* ===== GALLERY ===== */
     .gallery { background: var(--gray-light); }
-    .gallery-grid {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      grid-auto-rows: 220px;
-      gap: 8px;
-    }
-    .gallery-item {
-      position: relative; overflow: hidden; cursor: pointer; border-radius: 4px;
-      background: var(--gray-mid);
-    }
+    .gallery-grid { display: grid; grid-template-columns: repeat(4, 1fr); grid-auto-rows: 220px; gap: 8px; }
+    .gallery-item { position: relative; overflow: hidden; cursor: pointer; border-radius: 4px; background: var(--gray-mid); }
     .gallery-item:first-child { grid-column: span 2; grid-row: span 2; }
     .gallery-item:nth-child(5) { grid-column: span 2; }
-    .gallery-item img {
-      width: 100%; height: 100%;
-      object-fit: cover;
-      transition: transform 0.5s ease, filter 0.3s ease;
-    }
+    .gallery-item img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s ease, filter 0.3s ease; }
     .gallery-item:hover img { transform: scale(1.04); filter: brightness(1.05); }
-    .gallery-item-overlay {
-      position: absolute; inset: 0;
-      background: rgba(12,27,51,0);
-      display: flex; align-items: center; justify-content: center;
-      transition: background 0.3s;
-    }
+    .gallery-item-overlay { position: absolute; inset: 0; background: rgba(12,27,51,0); display: flex; align-items: center; justify-content: center; transition: background 0.3s; }
     .gallery-item:hover .gallery-item-overlay { background: rgba(12,27,51,0.25); }
     .gallery-item-overlay svg { color: white; opacity: 0; transform: scale(0.8); transition: all 0.3s; }
     .gallery-item:hover .gallery-item-overlay svg { opacity: 1; transform: scale(1); }
-
-    /* Lightbox */
-    .lightbox {
-      position: fixed; inset: 0; z-index: 9999;
-      background: rgba(0,0,0,0.96);
-      display: none; align-items: center; justify-content: center;
-    }
+    .lightbox { position: fixed; inset: 0; z-index: 9999; background: rgba(0,0,0,0.96); display: none; align-items: center; justify-content: center; }
     .lightbox.active { display: flex; }
     .lightbox-img-wrap { position: relative; max-width: 90vw; max-height: 88vh; }
     .lightbox-img-wrap img { max-width: 90vw; max-height: 85vh; object-fit: contain; border-radius: 4px; }
-    .lightbox-close {
-      position: absolute; top: -44px; right: 0;
-      color: white; font-size: 2rem; cursor: pointer;
-      width: 40px; height: 40px;
-      display: flex; align-items: center; justify-content: center;
-      border-radius: 50%; background: rgba(255,255,255,0.1);
-      transition: background 0.2s;
-    }
+    .lightbox-close { position: absolute; top: -44px; right: 0; color: white; font-size: 2rem; cursor: pointer; width: 40px; height: 40px; display: flex; align-items: center; justify-content: center; border-radius: 50%; background: rgba(255,255,255,0.1); transition: background 0.2s; }
     .lightbox-close:hover { background: rgba(255,255,255,0.2); }
-    .lightbox-btn {
-      position: fixed; top: 50%; transform: translateY(-50%);
-      color: white; font-size: 1.5rem; cursor: pointer;
-      width: 52px; height: 52px;
-      display: flex; align-items: center; justify-content: center;
-      border-radius: 50%;
-      background: rgba(255,255,255,0.1);
-      border: 1px solid rgba(255,255,255,0.2);
-      transition: all 0.2s;
-      z-index: 10001;
-    }
+    .lightbox-btn { position: fixed; top: 50%; transform: translateY(-50%); color: white; font-size: 1.5rem; cursor: pointer; width: 52px; height: 52px; display: flex; align-items: center; justify-content: center; border-radius: 50%; background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.2); transition: all 0.2s; z-index: 10001; }
     .lightbox-btn:hover { background: rgba(255,255,255,0.2); }
-    .lightbox-prev { left: 1.5rem; }
-    .lightbox-next { right: 1.5rem; }
-    .lightbox-counter {
-      position: fixed; bottom: 1.5rem; left: 50%; transform: translateX(-50%);
-      color: rgba(255,255,255,0.6); font-size: 0.85rem; letter-spacing: 0.1em;
-      z-index: 10001;
-    }
-
-    /* ===== GRUNDRISS ===== */
-    .grundriss-wrap {
-      background: white; border: 1px solid var(--gray-mid);
-      border-radius: 8px; padding: 2rem;
-      display: flex; flex-direction: column; align-items: center;
-    }
-    .grundriss-img {
-      width: 100%; max-width: 900px;
-      border-radius: 4px; box-shadow: var(--shadow);
-    }
-    .grundriss-caption {
-      margin-top: 1.75rem; max-width: 760px; text-align: center;
-      color: var(--gray-text); font-size: 0.95rem; line-height: 1.7;
-    }
+    .lightbox-prev { left: 1.5rem; } .lightbox-next { right: 1.5rem; }
+    .lightbox-counter { position: fixed; bottom: 1.5rem; left: 50%; transform: translateX(-50%); color: rgba(255,255,255,0.6); font-size: 0.85rem; letter-spacing: 0.1em; z-index: 10001; }
+    .grundriss-wrap { background: white; border: 1px solid var(--gray-mid); border-radius: 8px; padding: 2rem; display: flex; flex-direction: column; align-items: center; }
+    .grundriss-img { width: 100%; max-width: 900px; border-radius: 4px; box-shadow: var(--shadow); }
+    .grundriss-caption { margin-top: 1.75rem; max-width: 760px; text-align: center; color: var(--gray-text); font-size: 0.95rem; line-height: 1.7; }
     .grundriss-caption strong { color: var(--navy); font-weight: 600; }
-    .grundriss-download {
-      display: inline-flex; align-items: center; gap: 0.5rem;
-      margin-top: 1.5rem;
-      color: var(--gold); font-size: 0.85rem; font-weight: 600;
-      letter-spacing: 0.05em; text-transform: uppercase;
-      border: 1px solid var(--gold);
-      padding: 0.6rem 1.4rem; border-radius: var(--radius);
-      transition: all 0.2s;
-    }
+    .grundriss-download { display: inline-flex; align-items: center; gap: 0.5rem; margin-top: 1.5rem; color: var(--gold); font-size: 0.85rem; font-weight: 600; letter-spacing: 0.05em; text-transform: uppercase; border: 1px solid var(--gold); padding: 0.6rem 1.4rem; border-radius: var(--radius); transition: all 0.2s; }
     .grundriss-download:hover { background: var(--gold); color: white; }
-
-    /* ===== HIGHLIGHTS ===== */
     .highlights { background: var(--cream); }
-    .highlights-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-      gap: 1.25rem;
-    }
-    .highlight-card {
-      background: white; border: 1px solid var(--gray-mid);
-      border-radius: 8px; padding: 1.6rem 1.75rem;
-      display: flex; align-items: flex-start; gap: 1rem;
-      transition: all 0.25s; box-shadow: 0 2px 12px rgba(0,0,0,0.03);
-    }
+    .highlights-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1.25rem; }
+    .highlight-card { background: white; border: 1px solid var(--gray-mid); border-radius: 8px; padding: 1.6rem 1.75rem; display: flex; align-items: flex-start; gap: 1rem; transition: all 0.25s; box-shadow: 0 2px 12px rgba(0,0,0,0.03); }
     .highlight-card:hover { transform: translateY(-3px); box-shadow: var(--shadow); border-color: rgba(184,151,58,0.3); }
-    .highlight-icon {
-      width: 44px; height: 44px; flex-shrink: 0;
-      background: linear-gradient(135deg, rgba(184,151,58,0.08), rgba(184,151,58,0.15));
-      border: 1px solid rgba(184,151,58,0.2);
-      border-radius: 8px;
-      display: flex; align-items: center; justify-content: center;
-      color: var(--gold);
-    }
+    .highlight-icon { width: 44px; height: 44px; flex-shrink: 0; background: linear-gradient(135deg, rgba(184,151,58,0.08), rgba(184,151,58,0.15)); border: 1px solid rgba(184,151,58,0.2); border-radius: 8px; display: flex; align-items: center; justify-content: center; color: var(--gold); }
     .highlight-icon svg { width: 22px; height: 22px; }
     .highlight-title { font-size: 0.95rem; font-weight: 600; color: var(--navy); margin-bottom: 0.25rem; }
     .highlight-text { font-size: 0.85rem; color: var(--gray-text); line-height: 1.55; }
-
-    /* ===== NUTZUNG ===== */
     .nutzung { background: var(--navy); }
     .nutzung .section-title { color: white; }
     .nutzung .section-label { color: var(--gold-light); }
     .nutzung .section-label::before { background: var(--gold); }
     .nutzung-text { color: rgba(255,255,255,0.72); font-size: 1.05rem; line-height: 1.8; max-width: 860px; margin-bottom: 3rem; }
-    .nutzung-tags {
-      display: flex; flex-wrap: wrap; gap: 0.65rem;
-    }
-    .nutzung-tag {
-      background: rgba(255,255,255,0.06);
-      border: 1px solid rgba(255,255,255,0.12);
-      color: rgba(255,255,255,0.8);
-      padding: 0.5rem 1.1rem; border-radius: 2rem;
-      font-size: 0.85rem; font-weight: 500;
-      transition: all 0.2s; cursor: default;
-    }
+    .nutzung-tags { display: flex; flex-wrap: wrap; gap: 0.65rem; }
+    .nutzung-tag { background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.12); color: rgba(255,255,255,0.8); padding: 0.5rem 1.1rem; border-radius: 2rem; font-size: 0.85rem; font-weight: 500; transition: all 0.2s; cursor: default; }
     .nutzung-tag:hover { background: rgba(184,151,58,0.12); border-color: rgba(184,151,58,0.35); color: var(--gold-light); }
-
-    /* ===== LAGE ===== */
     .mikrolage { background: white; }
     .mikrolage-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; }
     .mikrolage-text p { color: var(--gray-text); font-size: 1rem; line-height: 1.8; margin-bottom: 1.25rem; }
     .mikrolage-text p:last-child { margin-bottom: 0; }
     .poi-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem; }
-    .poi-item {
-      display: flex; align-items: center; gap: 0.75rem;
-      padding: 0.9rem 1rem;
-      background: var(--gray-light); border-radius: var(--radius);
-      border: 1px solid var(--gray-mid);
-    }
+    .poi-item { display: flex; align-items: center; gap: 0.75rem; padding: 0.9rem 1rem; background: var(--gray-light); border-radius: var(--radius); border: 1px solid var(--gray-mid); }
     .poi-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--gold); flex-shrink: 0; }
     .poi-item span { font-size: 0.85rem; color: var(--navy); font-weight: 500; }
-
-    /* ===== MAKRO LAGE ===== */
     .makrolage { background: var(--gray-light); }
-    .travel-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-      gap: 1rem; margin-bottom: 2.5rem;
-    }
-    .travel-card {
-      background: white; border: 1px solid var(--gray-mid);
-      border-radius: 8px; padding: 1.4rem 1.5rem;
-      display: flex; align-items: center; gap: 1rem;
-      transition: all 0.2s; box-shadow: 0 2px 8px rgba(0,0,0,0.03);
-    }
+    .travel-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 1rem; margin-bottom: 2.5rem; }
+    .travel-card { background: white; border: 1px solid var(--gray-mid); border-radius: 8px; padding: 1.4rem 1.5rem; display: flex; align-items: center; gap: 1rem; transition: all 0.2s; box-shadow: 0 2px 8px rgba(0,0,0,0.03); }
     .travel-card:hover { transform: translateY(-2px); box-shadow: var(--shadow); }
-    .travel-icon {
-      width: 44px; height: 44px; flex-shrink: 0;
-      background: rgba(12,27,51,0.06); border-radius: 8px;
-      display: flex; align-items: center; justify-content: center;
-      color: var(--navy-mid);
-    }
+    .travel-icon { width: 44px; height: 44px; flex-shrink: 0; background: rgba(12,27,51,0.06); border-radius: 8px; display: flex; align-items: center; justify-content: center; color: var(--navy-mid); }
     .travel-icon svg { width: 20px; height: 20px; }
     .travel-dest { font-size: 0.82rem; color: var(--gray-text); margin-bottom: 0.2rem; }
     .travel-time { font-size: 0.97rem; font-weight: 700; color: var(--navy); }
     .travel-mode { font-size: 0.72rem; color: var(--gold); font-weight: 600; }
-    .erreichbarkeit {
-      background: var(--navy); color: rgba(255,255,255,0.8);
-      padding: 2rem 2.5rem; border-radius: 8px;
-      font-size: 1rem; line-height: 1.8; border-left: 4px solid var(--gold);
-    }
+    .erreichbarkeit { background: var(--navy); color: rgba(255,255,255,0.8); padding: 2rem 2.5rem; border-radius: 8px; font-size: 1rem; line-height: 1.8; border-left: 4px solid var(--gold); }
     .erreichbarkeit strong { color: white; }
-
-    /* ===== MAP ===== */
     .map-section { padding: 0; }
-    .map-section .container { max-width: 100%; padding: 0; }
-    #map {
-      width: 100%; height: 520px;
-      z-index: 1;
-      filter: brightness(0.95) contrast(1.05);
-    }
-    .map-overlay {
-      position: relative;
-    }
-    .map-info-box {
-      position: absolute; bottom: 2rem; left: 2rem; z-index: 999;
-      background: white; border-radius: 8px;
-      padding: 1.25rem 1.5rem;
-      box-shadow: var(--shadow-lg);
-      border-top: 3px solid var(--gold);
-      min-width: 220px;
-    }
-    .map-info-title { font-size: 0.72rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--gold); margin-bottom: 0.5rem; }
-    .map-info-address { font-size: 0.9rem; font-weight: 600; color: var(--navy); line-height: 1.4; }
-    .map-info-tag { margin-top: 0.5rem; display: inline-block; background: rgba(184,151,58,0.1); border: 1px solid rgba(184,151,58,0.25); color: var(--gold); font-size: 0.7rem; font-weight: 600; padding: 0.2rem 0.6rem; border-radius: 2rem; }
-
-    /* ===== MIETKONDITIONEN ===== */
+    #map { width: 100%; height: 520px; display: block; border: 0; filter: brightness(0.97) contrast(1.02); }
     .konditionen { background: white; }
-    .pricing-wrap {
-      background: linear-gradient(135deg, var(--navy) 0%, var(--navy-mid) 100%);
-      border-radius: 12px; overflow: hidden;
-      box-shadow: var(--shadow-lg);
-    }
-    .pricing-header {
-      padding: 2.5rem 3rem; border-bottom: 1px solid rgba(255,255,255,0.08);
-      display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1rem;
-    }
+    .pricing-wrap { background: linear-gradient(135deg, var(--navy) 0%, var(--navy-mid) 100%); border-radius: 12px; overflow: hidden; box-shadow: var(--shadow-lg); }
+    .pricing-header { padding: 2.5rem 3rem; border-bottom: 1px solid rgba(255,255,255,0.08); display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1rem; }
     .pricing-header h3 { color: white; font-size: 1.5rem; }
-    .pricing-badge {
-      background: rgba(184,151,58,0.15); border: 1px solid rgba(184,151,58,0.35);
-      color: var(--gold-light); font-size: 0.78rem; font-weight: 700;
-      letter-spacing: 0.08em; text-transform: uppercase;
-      padding: 0.4rem 1rem; border-radius: 2rem;
-    }
+    .pricing-badge { background: rgba(184,151,58,0.15); border: 1px solid rgba(184,151,58,0.35); color: var(--gold-light); font-size: 0.78rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; padding: 0.4rem 1rem; border-radius: 2rem; }
     .pricing-body { padding: 2.5rem 3rem; }
-    .pricing-row {
-      display: flex; align-items: center; justify-content: space-between;
-      padding: 1rem 0; border-bottom: 1px solid rgba(255,255,255,0.06);
-      flex-wrap: wrap; gap: 0.5rem;
-    }
+    .pricing-row { display: flex; align-items: center; justify-content: space-between; padding: 1rem 0; border-bottom: 1px solid rgba(255,255,255,0.06); flex-wrap: wrap; gap: 0.5rem; }
     .pricing-row:last-child { border-bottom: none; }
     .pricing-key { color: rgba(255,255,255,0.55); font-size: 0.88rem; }
     .pricing-val { color: white; font-size: 0.97rem; font-weight: 600; text-align: right; }
     .pricing-val.highlight-val { color: var(--gold-light); font-size: 1.15rem; }
-    .pricing-total {
-      margin-top: 1.5rem; padding: 1.5rem;
-      background: rgba(255,255,255,0.04);
-      border: 1px solid rgba(184,151,58,0.2);
-      border-radius: 8px;
-      display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1rem;
-    }
+    .pricing-total { margin-top: 1.5rem; padding: 1.5rem; background: rgba(255,255,255,0.04); border: 1px solid rgba(184,151,58,0.2); border-radius: 8px; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1rem; }
     .pricing-total-label { color: rgba(255,255,255,0.6); font-size: 0.85rem; }
     .pricing-total-val { color: var(--gold-light); font-size: 1.5rem; font-weight: 700; }
     .pricing-total-sub { color: rgba(255,255,255,0.4); font-size: 0.78rem; }
-
-    /* ===== WHY ===== */
     .why { background: var(--cream); }
     .why-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: center; }
     .why-text p { color: var(--gray-text); font-size: 1rem; line-height: 1.85; margin-bottom: 1.5rem; }
     .why-text p:last-child { margin-bottom: 0; }
     .why-points { display: flex; flex-direction: column; gap: 1rem; }
-    .why-point {
-      display: flex; align-items: flex-start; gap: 1rem;
-      padding: 1.25rem 1.5rem;
-      background: white; border: 1px solid var(--gray-mid);
-      border-radius: 8px; transition: all 0.25s;
-    }
+    .why-point { display: flex; align-items: flex-start; gap: 1rem; padding: 1.25rem 1.5rem; background: white; border: 1px solid var(--gray-mid); border-radius: 8px; transition: all 0.25s; }
     .why-point:hover { border-color: rgba(184,151,58,0.4); box-shadow: var(--shadow); transform: translateX(4px); }
     .why-point-icon { color: var(--gold); flex-shrink: 0; margin-top: 2px; }
     .why-point-icon svg { width: 20px; height: 20px; }
     .why-point-title { font-size: 0.9rem; font-weight: 600; color: var(--navy); margin-bottom: 0.2rem; }
     .why-point-text { font-size: 0.82rem; color: var(--gray-text); }
-
-    /* ===== KONTAKT ===== */
     .kontakt { background: var(--navy); }
     .kontakt .section-title { color: white; }
     .kontakt .section-label { color: var(--gold-light); }
     .kontakt .section-label::before { background: var(--gold); }
     .kontakt-lead { color: rgba(255,255,255,0.6); font-size: 1rem; max-width: 560px; margin-bottom: 3.5rem; line-height: 1.7; }
     .kontakt-grid { display: grid; grid-template-columns: 1fr 1.5fr; gap: 4rem; }
-    .contact-person {
-      background: rgba(255,255,255,0.04);
-      border: 1px solid rgba(255,255,255,0.08);
-      border-radius: 10px; padding: 2rem;
-    }
+    .contact-person { background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08); border-radius: 10px; padding: 2rem; }
     .contact-person-label { color: rgba(255,255,255,0.4); font-size: 0.72rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 1.25rem; }
-    .contact-avatar {
-      width: 72px; height: 72px; border-radius: 50%;
-      background: linear-gradient(135deg, var(--gold), var(--gold-light));
-      display: flex; align-items: center; justify-content: center;
-      color: white; font-size: 1.5rem; font-weight: 700;
-      margin-bottom: 1rem; border: 3px solid rgba(184,151,58,0.3);
-    }
+    .contact-avatar { width: 72px; height: 72px; border-radius: 50%; background: linear-gradient(135deg, var(--gold), var(--gold-light)); display: flex; align-items: center; justify-content: center; color: white; font-size: 1.5rem; font-weight: 700; margin-bottom: 1rem; border: 3px solid rgba(184,151,58,0.3); }
     .contact-name { color: white; font-size: 1.2rem; font-weight: 600; margin-bottom: 0.2rem; }
     .contact-role { color: var(--gold-light); font-size: 0.82rem; font-weight: 500; margin-bottom: 1.25rem; }
-    .contact-detail {
-      display: flex; align-items: center; gap: 0.65rem;
-      margin-bottom: 0.7rem;
-      color: rgba(255,255,255,0.65); font-size: 0.88rem;
-      transition: color 0.2s;
-    }
+    .contact-detail { display: flex; align-items: center; gap: 0.65rem; margin-bottom: 0.7rem; color: rgba(255,255,255,0.65); font-size: 0.88rem; transition: color 0.2s; }
     .contact-detail:hover { color: var(--gold-light); }
     .contact-detail svg { color: var(--gold); flex-shrink: 0; }
     .contact-detail a { color: inherit; transition: color 0.2s; }
     .contact-detail a:hover { color: var(--gold-light); }
     .contact-divider { height: 1px; background: rgba(255,255,255,0.08); margin: 1.25rem 0; }
-    .contact-linkedin {
-      display: inline-flex; align-items: center; gap: 0.5rem;
-      color: rgba(255,255,255,0.5); font-size: 0.82rem;
-      border: 1px solid rgba(255,255,255,0.12);
-      padding: 0.45rem 1rem; border-radius: 2rem;
-      transition: all 0.2s;
-    }
+    .contact-linkedin { display: inline-flex; align-items: center; gap: 0.5rem; color: rgba(255,255,255,0.5); font-size: 0.82rem; border: 1px solid rgba(255,255,255,0.12); padding: 0.45rem 1rem; border-radius: 2rem; transition: all 0.2s; }
     .contact-linkedin:hover { border-color: rgba(255,255,255,0.3); color: white; }
-
-    /* Form */
     .contact-form { display: flex; flex-direction: column; gap: 1rem; }
     .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
     .form-group { display: flex; flex-direction: column; gap: 0.4rem; }
     .form-group label { color: rgba(255,255,255,0.5); font-size: 0.75rem; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; }
-    .form-group input, .form-group textarea {
-      background: rgba(255,255,255,0.05);
-      border: 1px solid rgba(255,255,255,0.1);
-      border-radius: var(--radius);
-      padding: 0.85rem 1rem;
-      color: white; font-size: 0.9rem;
-      font-family: inherit;
-      transition: border-color 0.2s, background 0.2s;
-      outline: none;
-    }
+    .form-group input, .form-group textarea { background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); border-radius: var(--radius); padding: 0.85rem 1rem; color: white; font-size: 0.9rem; font-family: inherit; transition: border-color 0.2s, background 0.2s; outline: none; }
     .form-group input::placeholder, .form-group textarea::placeholder { color: rgba(255,255,255,0.25); }
-    .form-group input:focus, .form-group textarea:focus {
-      border-color: rgba(184,151,58,0.5);
-      background: rgba(255,255,255,0.07);
-    }
+    .form-group input:focus, .form-group textarea:focus { border-color: rgba(184,151,58,0.5); background: rgba(255,255,255,0.07); }
     .form-group textarea { resize: vertical; min-height: 120px; }
-    .form-submit {
-      display: inline-flex; align-items: center; justify-content: center; gap: 0.6rem;
-      background: var(--gold); color: white;
-      padding: 1rem 2.5rem; border-radius: var(--radius);
-      font-size: 0.9rem; font-weight: 600;
-      letter-spacing: 0.05em; text-transform: uppercase;
-      cursor: pointer; border: none; font-family: inherit;
-      transition: all 0.2s; margin-top: 0.5rem;
-      box-shadow: 0 4px 20px rgba(184,151,58,0.3);
-    }
+    .form-submit { display: inline-flex; align-items: center; justify-content: center; gap: 0.6rem; background: var(--gold); color: white; padding: 1rem 2.5rem; border-radius: var(--radius); font-size: 0.9rem; font-weight: 600; letter-spacing: 0.05em; text-transform: uppercase; cursor: pointer; border: none; font-family: inherit; transition: all 0.2s; margin-top: 0.5rem; box-shadow: 0 4px 20px rgba(184,151,58,0.3); }
     .form-submit:hover { background: var(--gold-light); transform: translateY(-2px); box-shadow: 0 8px 28px rgba(184,151,58,0.4); }
     .form-note { color: rgba(255,255,255,0.3); font-size: 0.75rem; margin-top: 0.5rem; }
-
-    /* ===== FOOTER ===== */
-    .footer {
-      background: #070F1E; padding: 2.5rem 2rem;
-      text-align: center;
-    }
+    .footer { background: #070F1E; padding: 2.5rem 2rem; }
     .footer-inner { max-width: 1280px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1rem; }
     .footer-copy { color: rgba(255,255,255,0.3); font-size: 0.78rem; }
     .footer-links { display: flex; gap: 1.5rem; }
     .footer-links a { color: rgba(255,255,255,0.3); font-size: 0.78rem; transition: color 0.2s; }
     .footer-links a:hover { color: rgba(255,255,255,0.6); }
-
-    /* ===== MOBILE NAV MENU ===== */
-    .nav-mobile-menu {
-      display: none; position: fixed;
-      top: 70px; left: 0; right: 0;
-      background: rgba(12,27,51,0.98);
-      backdrop-filter: blur(12px);
-      padding: 1.5rem 2rem;
-      flex-direction: column; gap: 1.25rem;
-      z-index: 999;
-      border-bottom: 1px solid rgba(255,255,255,0.08);
-    }
+    .nav-mobile-menu { display: none; position: fixed; top: 70px; left: 0; right: 0; background: rgba(12,27,51,0.98); backdrop-filter: blur(12px); padding: 1.5rem 2rem; flex-direction: column; gap: 1.25rem; z-index: 999; border-bottom: 1px solid rgba(255,255,255,0.08); }
     .nav-mobile-menu.open { display: flex; }
     .nav-mobile-menu a { color: rgba(255,255,255,0.8); font-size: 1rem; font-weight: 500; padding: 0.5rem 0; border-bottom: 1px solid rgba(255,255,255,0.06); }
-
-    /* ===== RESPONSIVE ===== */
     @media (max-width: 1024px) {
       .gallery-grid { grid-template-columns: repeat(3, 1fr); }
       .gallery-item:nth-child(5) { grid-column: span 1; }
@@ -639,8 +241,7 @@
     }
     @media (max-width: 768px) {
       section { padding: 4rem 1.25rem; }
-      .nav-links { display: none; }
-      .nav-cta { display: none; }
+      .nav-links { display: none; } .nav-cta { display: none; }
       .nav-hamburger { display: flex; }
       .hero-facts { grid-template-columns: repeat(2, 1fr); max-width: 100%; }
       .gallery-grid { grid-template-columns: repeat(2, 1fr); grid-auto-rows: 180px; }
@@ -663,29 +264,17 @@
 </head>
 <body>
 
-  <!-- ===== NAVIGATION ===== -->
   <nav class="nav" id="mainNav">
     <div class="nav-inner">
       <div class="nav-logo">
-        <div class="nav-logo-badge">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9,22 9,12 15,12 15,22"/></svg>
-        </div>
-        <div>
-          <span class="nav-logo-text">Josefstrasse 59</span>
-          <span class="nav-logo-sub">8005 Zürich · 825 m²</span>
-        </div>
+        <div class="nav-logo-badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9,22 9,12 15,12 15,22"/></svg></div>
+        <div><span class="nav-logo-text">Josefstrasse 59</span><span class="nav-logo-sub">8005 Zürich · 825 m²</span></div>
       </div>
       <div class="nav-links">
-        <a href="#overview">Übersicht</a>
-        <a href="#gallery">Galerie</a>
-        <a href="#highlights">Highlights</a>
-        <a href="#lage">Lage</a>
-        <a href="#konditionen">Konditionen</a>
+        <a href="#overview">Übersicht</a><a href="#gallery">Galerie</a><a href="#highlights">Highlights</a><a href="#lage">Lage</a><a href="#konditionen">Konditionen</a>
         <a href="#kontakt" class="nav-cta">Besichtigung</a>
       </div>
-      <button class="nav-hamburger" id="hamburger" aria-label="Menü öffnen">
-        <span></span><span></span><span></span>
-      </button>
+      <button class="nav-hamburger" id="hamburger" aria-label="Menü öffnen"><span></span><span></span><span></span></button>
     </div>
   </nav>
   <div class="nav-mobile-menu" id="mobileMenu">
@@ -697,7 +286,6 @@
     <a href="#kontakt" onclick="closeMobileMenu()" style="color:var(--gold-light);font-weight:600">Besichtigung vereinbaren →</a>
   </div>
 
-  <!-- ===== HERO ===== -->
   <section class="hero" id="home">
     <div class="hero-bg" id="heroBg"></div>
     <div class="hero-content fade-in">
@@ -705,319 +293,116 @@
       <h1>Attraktive Bürofläche im Herzen von Zürich-West</h1>
       <p class="hero-sub">825 m² moderne Bürofläche an bester Lage – Josefstrasse 59, 8005 Zürich</p>
       <div class="hero-facts">
-        <div class="hero-fact">
-          <div class="hero-fact-label">Mietfläche</div>
-          <div class="hero-fact-value">825 m²</div>
-        </div>
-        <div class="hero-fact">
-          <div class="hero-fact-label">Stockwerk</div>
-          <div class="hero-fact-value">1. Obergeschoss</div>
-        </div>
-        <div class="hero-fact">
-          <div class="hero-fact-label">Verfügbarkeit</div>
-          <div class="hero-fact-value">Per sofort</div>
-        </div>
-        <div class="hero-fact">
-          <div class="hero-fact-label">Mietzins</div>
-          <div class="hero-fact-value">CHF 365/m²/J.</div>
-        </div>
+        <div class="hero-fact"><div class="hero-fact-label">Mietfläche</div><div class="hero-fact-value">825 m²</div></div>
+        <div class="hero-fact"><div class="hero-fact-label">Stockwerk</div><div class="hero-fact-value">1. Obergeschoss</div></div>
+        <div class="hero-fact"><div class="hero-fact-label">Verfügbarkeit</div><div class="hero-fact-value">Per sofort</div></div>
+        <div class="hero-fact"><div class="hero-fact-label">Mietzins</div><div class="hero-fact-value">CHF 365/m²/J.</div></div>
       </div>
       <div class="hero-actions">
-        <a href="#kontakt" class="btn-primary">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
-          Besichtigung vereinbaren
-        </a>
-        <a href="https://cdn.flatfox.ch/listings/v2/f046im/4002916928/document/cde4f094ee9fe7aa7faf41a7fa2245db.pdf" target="_blank" class="btn-secondary">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-          Exposé herunterladen
-        </a>
+        <a href="#kontakt" class="btn-primary"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>Besichtigung vereinbaren</a>
+        <a href="https://cdn.flatfox.ch/listings/v2/f046im/4002916928/document/cde4f094ee9fe7aa7faf41a7fa2245db.pdf" target="_blank" class="btn-secondary"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>Exposé herunterladen</a>
       </div>
     </div>
-    <div class="hero-scroll">
-      <div class="hero-scroll-line"></div>
-      <span>Entdecken</span>
-    </div>
+    <div class="hero-scroll"><div class="hero-scroll-line"></div><span>Entdecken</span></div>
   </section>
 
-  <!-- ===== OBJEKTÜBERSICHT ===== -->
   <section class="overview" id="overview">
     <div class="container">
-      <div class="section-header fade-in">
-        <div class="section-label">Objektdetails</div>
-        <h2 class="section-title">Objektübersicht</h2>
-      </div>
+      <div class="section-header fade-in"><div class="section-label">Objektdetails</div><h2 class="section-title">Objektübersicht</h2></div>
       <div class="overview-grid fade-in fade-in-delay-1">
-        <div class="ov-card">
-          <div class="ov-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/></svg></div>
-          <div><div class="ov-label">Adresse</div><div class="ov-value">Josefstrasse 59<br>8005 Zürich</div></div>
-        </div>
-        <div class="ov-card">
-          <div class="ov-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 16V8a2 2 0 00-1-1.73l-7-4a2 2 0 00-2 0l-7 4A2 2 0 003 8v8a2 2 0 001 1.73l7 4a2 2 0 002 0l7-4A2 2 0 0021 16z"/></svg></div>
-          <div><div class="ov-label">Mietfläche</div><div class="ov-value">825 m²</div></div>
-        </div>
-        <div class="ov-card">
-          <div class="ov-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg></div>
-          <div><div class="ov-label">Stockwerk</div><div class="ov-value">1. Obergeschoss</div></div>
-        </div>
-        <div class="ov-card">
-          <div class="ov-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg></div>
-          <div><div class="ov-label">Mietzins (brutto)</div><div class="ov-value">CHF 365 / m² / Jahr</div></div>
-        </div>
-        <div class="ov-card">
-          <div class="ov-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
-          <div><div class="ov-label">Nebenkosten (Akonto)</div><div class="ov-value">CHF 35 / m² / Jahr</div></div>
-        </div>
-        <div class="ov-card">
-          <div class="ov-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg></div>
-          <div><div class="ov-label">Verfügbarkeit</div><div class="ov-value">Per sofort</div></div>
-        </div>
-        <div class="ov-card">
-          <div class="ov-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div>
-          <div><div class="ov-label">Mietdauer</div><div class="ov-value">5 Jahre fix</div></div>
-        </div>
-        <div class="ov-card">
-          <div class="ov-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="5" y="2" width="14" height="20" rx="2"/><line x1="12" y1="6" x2="12" y2="6"/><line x1="12" y1="10" x2="12" y2="10"/><line x1="12" y1="14" x2="12" y2="14"/></svg></div>
-          <div><div class="ov-label">Personenlift</div><div class="ov-value"><span class="ov-check">✓</span> 2 Lifte vorhanden</div></div>
-        </div>
-        <div class="ov-card">
-          <div class="ov-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 21V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v16"/></svg></div>
-          <div><div class="ov-label">Warenlift</div><div class="ov-value"><span class="ov-check">✓</span> 3'000 kg (Mitbenutzung)</div></div>
-        </div>
-        <div class="ov-card">
-          <div class="ov-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M8 6h13M8 12h13M8 18h13M3 6h.01M3 12h.01M3 18h.01"/></svg></div>
-          <div><div class="ov-label">Teeküche</div><div class="ov-value"><span class="ov-check">✓</span> Vorhanden</div></div>
-        </div>
-        <div class="ov-card">
-          <div class="ov-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg></div>
-          <div><div class="ov-label">Dusche</div><div class="ov-value"><span class="ov-check">✓</span> Ausgebaut</div></div>
-        </div>
-        <div class="ov-card">
-          <div class="ov-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg></div>
-          <div><div class="ov-label">WC-Anlagen</div><div class="ov-value"><span class="ov-check">✓</span> Inkl. IV-Toilette</div></div>
-        </div>
-        <div class="ov-card">
-          <div class="ov-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 17H3a2 2 0 01-2-2V5a2 2 0 012-2h11a2 2 0 012 2v3m-7 4h7l-1 1v4l1 1H8l1-1v-4l-1-1z"/></svg></div>
-          <div><div class="ov-label">Lagerfläche</div><div class="ov-value"><span class="ov-check">✓</span> Gleiche Etage</div></div>
-        </div>
-        <div class="ov-card">
-          <div class="ov-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M12 1v4M12 19v4M4.22 4.22l2.83 2.83M16.95 16.95l2.83 2.83M1 12h4M19 12h4M4.22 19.78l2.83-2.83M16.95 7.05l2.83-2.83"/></svg></div>
-          <div><div class="ov-label">Rollstuhlgängig</div><div class="ov-value"><span class="ov-check">✓</span> Barrierefrei</div></div>
-        </div>
-        <div class="ov-card">
-          <div class="ov-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg></div>
-          <div><div class="ov-label">Ausbauqualität</div><div class="ov-value">Sehr gut · LED · Modern</div></div>
-        </div>
-        <div class="ov-card">
-          <div class="ov-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
-          <div><div class="ov-label">Erweiterung</div><div class="ov-value">+825 m² möglich</div></div>
-        </div>
+        <div class="ov-card"><div class="ov-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/></svg></div><div><div class="ov-label">Adresse</div><div class="ov-value">Josefstrasse 59<br>8005 Zürich</div></div></div>
+        <div class="ov-card"><div class="ov-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 16V8a2 2 0 00-1-1.73l-7-4a2 2 0 00-2 0l-7 4A2 2 0 003 8v8a2 2 0 001 1.73l7 4a2 2 0 002 0l7-4A2 2 0 0021 16z"/></svg></div><div><div class="ov-label">Mietfläche</div><div class="ov-value">825 m²</div></div></div>
+        <div class="ov-card"><div class="ov-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg></div><div><div class="ov-label">Stockwerk</div><div class="ov-value">1. Obergeschoss</div></div></div>
+        <div class="ov-card"><div class="ov-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg></div><div><div class="ov-label">Mietzins (brutto)</div><div class="ov-value">CHF 365 / m² / Jahr</div></div></div>
+        <div class="ov-card"><div class="ov-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div><div><div class="ov-label">Nebenkosten (Akonto)</div><div class="ov-value">CHF 35 / m² / Jahr</div></div></div>
+        <div class="ov-card"><div class="ov-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg></div><div><div class="ov-label">Verfügbarkeit</div><div class="ov-value">Per sofort</div></div></div>
+        <div class="ov-card"><div class="ov-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div><div><div class="ov-label">Mietdauer</div><div class="ov-value">5 Jahre fix</div></div></div>
+        <div class="ov-card"><div class="ov-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="5" y="2" width="14" height="20" rx="2"/></svg></div><div><div class="ov-label">Personenlift</div><div class="ov-value"><span class="ov-check">✓</span> 2 Lifte vorhanden</div></div></div>
+        <div class="ov-card"><div class="ov-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 21V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v16"/></svg></div><div><div class="ov-label">Warenlift</div><div class="ov-value"><span class="ov-check">✓</span> 3'000 kg</div></div></div>
+        <div class="ov-card"><div class="ov-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M8 6h13M8 12h13M8 18h13M3 6h.01M3 12h.01M3 18h.01"/></svg></div><div><div class="ov-label">Teeküche</div><div class="ov-value"><span class="ov-check">✓</span> Vorhanden</div></div></div>
+        <div class="ov-card"><div class="ov-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg></div><div><div class="ov-label">WC-Anlagen</div><div class="ov-value"><span class="ov-check">✓</span> Inkl. IV-Toilette</div></div></div>
+        <div class="ov-card"><div class="ov-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg></div><div><div class="ov-label">Dusche</div><div class="ov-value"><span class="ov-check">✓</span> Ausgebaut</div></div></div>
+        <div class="ov-card"><div class="ov-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 17H3a2 2 0 01-2-2V5a2 2 0 012-2h11a2 2 0 012 2v3m-7 4h7l-1 1v4l1 1H8l1-1v-4l-1-1z"/></svg></div><div><div class="ov-label">Lagerfläche</div><div class="ov-value"><span class="ov-check">✓</span> Gleiche Etage</div></div></div>
+        <div class="ov-card"><div class="ov-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M12 1v4M12 19v4M4.22 4.22l2.83 2.83M16.95 16.95l2.83 2.83M1 12h4M19 12h4M4.22 19.78l2.83-2.83M16.95 7.05l2.83-2.83"/></svg></div><div><div class="ov-label">Rollstuhlgängig</div><div class="ov-value"><span class="ov-check">✓</span> Barrierefrei</div></div></div>
+        <div class="ov-card"><div class="ov-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg></div><div><div class="ov-label">Ausbauqualität</div><div class="ov-value">Sehr gut · LED · Modern</div></div></div>
+        <div class="ov-card"><div class="ov-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div><div><div class="ov-label">Erweiterung</div><div class="ov-value">+825 m² möglich</div></div></div>
       </div>
     </div>
   </section>
 
-  <!-- ===== GALERIE ===== -->
   <section class="gallery" id="gallery">
     <div class="container">
-      <div class="section-header fade-in">
-        <div class="section-label">Impressionen</div>
-        <h2 class="section-title">Bildergalerie</h2>
-        <p class="section-lead">17 Aufnahmen der Mietfläche. Klicken Sie auf ein Bild für die Vollbildansicht.</p>
-      </div>
+      <div class="section-header fade-in"><div class="section-label">Impressionen</div><h2 class="section-title">Bildergalerie</h2><p class="section-lead">17 Aufnahmen der Mietfläche. Klicken Sie auf ein Bild für die Vollbildansicht.</p></div>
       <div class="gallery-grid fade-in fade-in-delay-1" id="galleryGrid">
-        <div class="gallery-item" onclick="openLightbox(0)">
-          <img src="https://cdn.flatfox.ch/listings/v2/f046im/4002916928/image/6f43d949a0825f8d9db59f66d70cab32.jpg" alt="Bürofläche Josefstrasse 59, Zürich-West" loading="lazy">
-          <div class="gallery-item-overlay"><svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg></div>
-        </div>
-        <div class="gallery-item" onclick="openLightbox(1)">
-          <img src="https://cdn.flatfox.ch/listings/v2/f046im/4002916928/image/e86a2505ebfe18aad1e2d2f1caef4ec2.jpg" alt="Bürofläche Innenansicht" loading="lazy">
-          <div class="gallery-item-overlay"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg></div>
-        </div>
-        <div class="gallery-item" onclick="openLightbox(2)">
-          <img src="https://cdn.flatfox.ch/listings/v2/f046im/4002916928/image/2016afa5e9f102956284f891f672aca0.jpg" alt="Bürofläche Zürich" loading="lazy">
-          <div class="gallery-item-overlay"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg></div>
-        </div>
-        <div class="gallery-item" onclick="openLightbox(3)">
-          <img src="https://cdn.flatfox.ch/listings/v2/f046im/4002916928/image/e00072a42c07108c192560343b92911e.jpg" alt="Büro Raumaufteilung" loading="lazy">
-          <div class="gallery-item-overlay"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg></div>
-        </div>
-        <div class="gallery-item" onclick="openLightbox(4)">
-          <img src="https://cdn.flatfox.ch/listings/v2/f046im/4002916928/image/239bfc21f09265f6e5134020e00a61ee.jpg" alt="Bürofläche Tageslicht" loading="lazy">
-          <div class="gallery-item-overlay"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg></div>
-        </div>
-        <div class="gallery-item" onclick="openLightbox(5)">
-          <img src="https://cdn.flatfox.ch/listings/v2/f046im/4002916928/image/ae08a2977f9edadfc9f599eee0c543fc.jpg" alt="Büroräume" loading="lazy">
-          <div class="gallery-item-overlay"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg></div>
-        </div>
-        <div class="gallery-item" onclick="openLightbox(6)">
-          <img src="https://cdn.flatfox.ch/listings/v2/f046im/4002916928/image/060d81627d4722546a83926c740a5117.jpg" alt="Büro Innenräume" loading="lazy">
-          <div class="gallery-item-overlay"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg></div>
-        </div>
-        <div class="gallery-item" onclick="openLightbox(7)">
-          <img src="https://cdn.flatfox.ch/listings/v2/f046im/4002916928/image/e1586f3e1b48b918305d3d2fee94f647.jpg" alt="Fensterfront Büro" loading="lazy">
-          <div class="gallery-item-overlay"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg></div>
-        </div>
-        <div class="gallery-item" onclick="openLightbox(8)">
-          <img src="https://cdn.flatfox.ch/listings/v2/f046im/4002916928/image/cb3fc5be1341e91ed73974be6b4ec423.jpg" alt="Besprechungsraum" loading="lazy">
-          <div class="gallery-item-overlay"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg></div>
-        </div>
-        <div class="gallery-item" onclick="openLightbox(9)">
-          <img src="https://cdn.flatfox.ch/listings/v2/f046im/4002916928/image/64f9e829cd029b08f23163d0b86fe627.jpg" alt="Bürofläche Korridor" loading="lazy">
-          <div class="gallery-item-overlay"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg></div>
-        </div>
-        <div class="gallery-item" onclick="openLightbox(10)">
-          <img src="https://cdn.flatfox.ch/listings/v2/f046im/4002916928/image/a24fb06e7e505a69c9761aef762713e1.jpg" alt="Gebäude Aussenansicht" loading="lazy">
-          <div class="gallery-item-overlay"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg></div>
-        </div>
-        <div class="gallery-item" onclick="openLightbox(11)">
-          <img src="https://cdn.flatfox.ch/listings/v2/f046im/4002916928/image/1cec7c99b63a4bba783f1bf78a07ecc4.jpg" alt="Bürofläche Detail" loading="lazy">
-          <div class="gallery-item-overlay"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg></div>
-        </div>
-        <div class="gallery-item" onclick="openLightbox(12)">
-          <img src="https://cdn.flatfox.ch/listings/v2/f046im/4002916928/image/1613df48653c8e93b2671b479a12497a.jpg" alt="Büroräume Zürich-West" loading="lazy">
-          <div class="gallery-item-overlay"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg></div>
-        </div>
-        <div class="gallery-item" onclick="openLightbox(13)">
-          <img src="https://cdn.flatfox.ch/listings/v2/f046im/4002916928/image/c32069416f9962e45b1fdeb4e421ac9f.jpg" alt="Bürofläche Beleuchtung" loading="lazy">
-          <div class="gallery-item-overlay"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg></div>
-        </div>
-        <div class="gallery-item" onclick="openLightbox(14)">
-          <img src="https://cdn.flatfox.ch/listings/v2/f046im/4002916928/image/48fbf7dd30a2bc4ad1c42a2f30ce84de.jpg" alt="Bürogebäude Innenhof" loading="lazy">
-          <div class="gallery-item-overlay"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg></div>
-        </div>
-        <div class="gallery-item" onclick="openLightbox(15)">
-          <img src="https://cdn.flatfox.ch/listings/v2/f046im/4002916928/image/d2ede9741235134839e6a1d72e557495.jpg" alt="Bürofläche Zürich" loading="lazy">
-          <div class="gallery-item-overlay"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg></div>
-        </div>
-        <div class="gallery-item" onclick="openLightbox(16)">
-          <img src="https://cdn.flatfox.ch/listings/v2/f046im/4002916928/image/317305d0380f97da0613b9d383429738.jpg" alt="Josefstrasse 59 Zürich" loading="lazy">
-          <div class="gallery-item-overlay"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg></div>
-        </div>
+        <div class="gallery-item" onclick="openLightbox(0)"><img src="https://cdn.flatfox.ch/listings/v2/f046im/4002916928/image/6f43d949a0825f8d9db59f66d70cab32.jpg" alt="Bürofläche Josefstrasse 59" loading="lazy"><div class="gallery-item-overlay"><svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg></div></div>
+        <div class="gallery-item" onclick="openLightbox(1)"><img src="https://cdn.flatfox.ch/listings/v2/f046im/4002916928/image/e86a2505ebfe18aad1e2d2f1caef4ec2.jpg" alt="Innenansicht" loading="lazy"><div class="gallery-item-overlay"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg></div></div>
+        <div class="gallery-item" onclick="openLightbox(2)"><img src="https://cdn.flatfox.ch/listings/v2/f046im/4002916928/image/2016afa5e9f102956284f891f672aca0.jpg" alt="Bürofläche" loading="lazy"><div class="gallery-item-overlay"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg></div></div>
+        <div class="gallery-item" onclick="openLightbox(3)"><img src="https://cdn.flatfox.ch/listings/v2/f046im/4002916928/image/e00072a42c07108c192560343b92911e.jpg" alt="Raumaufteilung" loading="lazy"><div class="gallery-item-overlay"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg></div></div>
+        <div class="gallery-item" onclick="openLightbox(4)"><img src="https://cdn.flatfox.ch/listings/v2/f046im/4002916928/image/239bfc21f09265f6e5134020e00a61ee.jpg" alt="Tageslicht" loading="lazy"><div class="gallery-item-overlay"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg></div></div>
+        <div class="gallery-item" onclick="openLightbox(5)"><img src="https://cdn.flatfox.ch/listings/v2/f046im/4002916928/image/ae08a2977f9edadfc9f599eee0c543fc.jpg" alt="Büroräume" loading="lazy"><div class="gallery-item-overlay"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg></div></div>
+        <div class="gallery-item" onclick="openLightbox(6)"><img src="https://cdn.flatfox.ch/listings/v2/f046im/4002916928/image/060d81627d4722546a83926c740a5117.jpg" alt="Innenräume" loading="lazy"><div class="gallery-item-overlay"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg></div></div>
+        <div class="gallery-item" onclick="openLightbox(7)"><img src="https://cdn.flatfox.ch/listings/v2/f046im/4002916928/image/e1586f3e1b48b918305d3d2fee94f647.jpg" alt="Fensterfront" loading="lazy"><div class="gallery-item-overlay"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg></div></div>
+        <div class="gallery-item" onclick="openLightbox(8)"><img src="https://cdn.flatfox.ch/listings/v2/f046im/4002916928/image/cb3fc5be1341e91ed73974be6b4ec423.jpg" alt="Besprechungsraum" loading="lazy"><div class="gallery-item-overlay"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg></div></div>
+        <div class="gallery-item" onclick="openLightbox(9)"><img src="https://cdn.flatfox.ch/listings/v2/f046im/4002916928/image/64f9e829cd029b08f23163d0b86fe627.jpg" alt="Korridor" loading="lazy"><div class="gallery-item-overlay"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg></div></div>
+        <div class="gallery-item" onclick="openLightbox(10)"><img src="https://cdn.flatfox.ch/listings/v2/f046im/4002916928/image/a24fb06e7e505a69c9761aef762713e1.jpg" alt="Aussenansicht" loading="lazy"><div class="gallery-item-overlay"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg></div></div>
+        <div class="gallery-item" onclick="openLightbox(11)"><img src="https://cdn.flatfox.ch/listings/v2/f046im/4002916928/image/1cec7c99b63a4bba783f1bf78a07ecc4.jpg" alt="Detail" loading="lazy"><div class="gallery-item-overlay"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg></div></div>
+        <div class="gallery-item" onclick="openLightbox(12)"><img src="https://cdn.flatfox.ch/listings/v2/f046im/4002916928/image/1613df48653c8e93b2671b479a12497a.jpg" alt="Zürich-West" loading="lazy"><div class="gallery-item-overlay"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg></div></div>
+        <div class="gallery-item" onclick="openLightbox(13)"><img src="https://cdn.flatfox.ch/listings/v2/f046im/4002916928/image/c32069416f9962e45b1fdeb4e421ac9f.jpg" alt="Beleuchtung" loading="lazy"><div class="gallery-item-overlay"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg></div></div>
+        <div class="gallery-item" onclick="openLightbox(14)"><img src="https://cdn.flatfox.ch/listings/v2/f046im/4002916928/image/48fbf7dd30a2bc4ad1c42a2f30ce84de.jpg" alt="Innenhof" loading="lazy"><div class="gallery-item-overlay"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg></div></div>
+        <div class="gallery-item" onclick="openLightbox(15)"><img src="https://cdn.flatfox.ch/listings/v2/f046im/4002916928/image/d2ede9741235134839e6a1d72e557495.jpg" alt="Bürofläche Zürich" loading="lazy"><div class="gallery-item-overlay"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg></div></div>
+        <div class="gallery-item" onclick="openLightbox(16)"><img src="https://cdn.flatfox.ch/listings/v2/f046im/4002916928/image/317305d0380f97da0613b9d383429738.jpg" alt="Josefstrasse 59" loading="lazy"><div class="gallery-item-overlay"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg></div></div>
       </div>
     </div>
   </section>
 
-  <!-- Lightbox -->
   <div class="lightbox" id="lightbox">
     <button class="lightbox-btn lightbox-prev" onclick="lightboxNav(-1)">&#8592;</button>
-    <div class="lightbox-img-wrap">
-      <div class="lightbox-close" onclick="closeLightbox()">&#215;</div>
-      <img id="lightboxImg" src="" alt="Vollbild">
-    </div>
+    <div class="lightbox-img-wrap"><div class="lightbox-close" onclick="closeLightbox()">&#215;</div><img id="lightboxImg" src="" alt="Vollbild"></div>
     <button class="lightbox-btn lightbox-next" onclick="lightboxNav(1)">&#8594;</button>
     <div class="lightbox-counter" id="lightboxCounter"></div>
   </div>
 
-  <!-- ===== GRUNDRISS ===== -->
   <section id="grundriss" style="background:white;padding:6rem 2rem;">
     <div class="container">
-      <div class="section-header fade-in">
-        <div class="section-label">Raumplanung</div>
-        <h2 class="section-title">Grundriss</h2>
-      </div>
+      <div class="section-header fade-in"><div class="section-label">Raumplanung</div><h2 class="section-title">Grundriss</h2></div>
       <div class="grundriss-wrap fade-in fade-in-delay-1">
-        <img class="grundriss-img"
-          src="https://cdn.flatfox.ch/listings/v2/f046im/4002916928/image/317305d0380f97da0613b9d383429738.jpg"
-          alt="Grundriss Bürofläche Josefstrasse 59 Zürich – 825 m²">
-        <p class="grundriss-caption">
-          Die <strong>825 m² Mietfläche</strong> im 1. Obergeschoss ist in <strong>19 geschlossene Büroräume</strong> unterteilt, die flexibel als Einzelbüros, Sitzungszimmer oder Projekträume genutzt werden können. Die durchdachte Raumstruktur ermöglicht sowohl eine klassische Zellenaufteilung als auch eine Umgestaltung zu einem modernen Open-Space-Konzept. Die grosszügigen Fensterfronten auf mehreren Seiten des Gebäudes sorgen für eine hervorragende natürliche Belichtung aller Arbeitsbereiche. <strong>Raumhöhen</strong> von 2.53 m bis 2.74 m (Teilfläche über Podest: 2.40 m) schaffen ein angenehmes, repräsentatives Raumgefühl.
-        </p>
-        <a href="https://cdn.flatfox.ch/listings/v2/f046im/4002916928/document/e8ab4ee895794f43f2e97627078fc3f4.pdf" target="_blank" class="grundriss-download">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-          Detaillierten Grundrissplan herunterladen (PDF)
-        </a>
+        <img class="grundriss-img" src="https://cdn.flatfox.ch/listings/v2/f046im/4002916928/image/317305d0380f97da0613b9d383429738.jpg" alt="Grundriss 825 m²">
+        <p class="grundriss-caption">Die <strong>825 m² Mietfläche</strong> im 1. Obergeschoss ist in <strong>19 geschlossene Büroräume</strong> unterteilt, die flexibel als Einzelbüros, Sitzungszimmer oder Projekträume genutzt werden können. Die durchdachte Raumstruktur ermöglicht sowohl eine klassische Zellenaufteilung als auch eine Umgestaltung zu einem modernen Open-Space-Konzept. <strong>Raumhöhen</strong> von 2.53 m bis 2.74 m schaffen ein angenehmes, repräsentatives Raumgefühl.</p>
+        <a href="https://cdn.flatfox.ch/listings/v2/f046im/4002916928/document/e8ab4ee895794f43f2e97627078fc3f4.pdf" target="_blank" class="grundriss-download"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>Grundrissplan herunterladen (PDF)</a>
       </div>
     </div>
   </section>
 
-  <!-- ===== HIGHLIGHTS ===== -->
   <section class="highlights" id="highlights">
     <div class="container">
-      <div class="section-header fade-in">
-        <div class="section-label">Vorteile</div>
-        <h2 class="section-title">Highlights der Mietfläche</h2>
-        <p class="section-lead">Eine sorgfältig ausgebaute Fläche, die hohe Ansprüche an Funktionalität und Repräsentation erfüllt.</p>
-      </div>
+      <div class="section-header fade-in"><div class="section-label">Vorteile</div><h2 class="section-title">Highlights der Mietfläche</h2><p class="section-lead">Eine sorgfältig ausgebaute Fläche, die hohe Ansprüche an Funktionalität und Repräsentation erfüllt.</p></div>
       <div class="highlights-grid">
-        <div class="highlight-card fade-in">
-          <div class="highlight-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg></div>
-          <div><div class="highlight-title">825 m² zusammenhängende Fläche</div><div class="highlight-text">Eine geschlossene, effizient gestaltete Bürofläche im 1. Obergeschoss – ohne Trennung durch Treppenhäuser oder Schächte.</div></div>
-        </div>
-        <div class="highlight-card fade-in fade-in-delay-1">
-          <div class="highlight-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9,22 9,12 15,12 15,22"/></svg></div>
-          <div><div class="highlight-title">19 Büroräume</div><div class="highlight-text">Geschlossene Einzelbüros, die individuell als Arbeitszimmer, Besprechungsräume oder Projekträume genutzt werden können.</div></div>
-        </div>
-        <div class="highlight-card fade-in fade-in-delay-2">
-          <div class="highlight-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg></div>
-          <div><div class="highlight-title">Sitzungszimmer</div><div class="highlight-text">Dedizierte Konferenz- und Sitzungsräume für interne Meetings und Kundentermine in representativem Umfeld.</div></div>
-        </div>
-        <div class="highlight-card fade-in fade-in-delay-3">
-          <div class="highlight-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg></div>
-          <div><div class="highlight-title">Flexible Raumaufteilung</div><div class="highlight-text">Die bestehende Struktur ermöglicht eine flexible Nutzung – von klassischer Büroorganisation bis zum modernen Open-Space-Konzept.</div></div>
-        </div>
-        <div class="highlight-card fade-in">
-          <div class="highlight-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg></div>
-          <div><div class="highlight-title">Grosszügige Fensterflächen</div><div class="highlight-text">Fensterfronten auf mehreren Gebäudeseiten ermöglichen natürliche Belichtung aus verschiedenen Richtungen und schaffen ein helles Arbeitsambiente.</div></div>
-        </div>
-        <div class="highlight-card fade-in fade-in-delay-1">
-          <div class="highlight-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg></div>
-          <div><div class="highlight-title">Moderne LED-Beleuchtung</div><div class="highlight-text">Hochwertiges, energieeffizientes LED-Beleuchtungssystem für optimale und gleichmässige Ausleuchtung aller Arbeitsbereiche.</div></div>
-        </div>
-        <div class="highlight-card fade-in fade-in-delay-2">
-          <div class="highlight-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></div>
-          <div><div class="highlight-title">Raumhöhe bis 2.74 m</div><div class="highlight-text">Lichte Raumhöhen von 2.53 m bis 2.74 m im Hauptbereich sowie 2.40 m im Bereich über dem Podest vermitteln ein grosszügiges Raumgefühl.</div></div>
-        </div>
-        <div class="highlight-card fade-in fade-in-delay-3">
-          <div class="highlight-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 21V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v16"/></svg></div>
-          <div><div class="highlight-title">Warenlift 3'000 kg</div><div class="highlight-text">Direkter Zugang zum Warenlift in der Mietfläche mit einer Tragkraft von 3'000 kg – ideal für Materiallieferungen und logistische Bedürfnisse.</div></div>
-        </div>
-        <div class="highlight-card fade-in">
-          <div class="highlight-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="5" y="2" width="14" height="20" rx="2"/><line x1="12" y1="6" x2="12" y2="6.01"/><line x1="12" y1="10" x2="12" y2="10.01"/></svg></div>
-          <div><div class="highlight-title">Zwei Personenlifte</div><div class="highlight-text">Zwei unabhängige Personenlifte gewährleisten reibungslose vertikale Erschliessung auch bei hohem Personenaufkommen.</div></div>
-        </div>
-        <div class="highlight-card fade-in fade-in-delay-1">
-          <div class="highlight-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 7H4a2 2 0 00-2 2v6a2 2 0 002 2h16a2 2 0 002-2V9a2 2 0 00-2-2z"/><circle cx="12" cy="12" r="2"/></svg></div>
-          <div><div class="highlight-title">Lagerfläche inkl.</div><div class="highlight-text">Separater Lagerraum auf gleicher Etage – für Archivierung, Materialien oder ergänzende Nutzungszwecke.</div></div>
-        </div>
-        <div class="highlight-card fade-in fade-in-delay-2">
-          <div class="highlight-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
-          <div><div class="highlight-title">Hochwertiger Innenausbau</div><div class="highlight-text">Sehr guter Ausbaustandard mit hochwertigen Materialien – repräsentativ für anspruchsvolle Unternehmensstandorte.</div></div>
-        </div>
-        <div class="highlight-card fade-in fade-in-delay-3">
-          <div class="highlight-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg></div>
-          <div><div class="highlight-title">Sofortiger Bezug</div><div class="highlight-text">Die Fläche ist per sofort verfügbar – für Unternehmen, die schnell handeln und ihren Betrieb ohne Wartezeit aufnehmen möchten.</div></div>
-        </div>
+        <div class="highlight-card fade-in"><div class="highlight-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg></div><div><div class="highlight-title">825 m² zusammenhängende Fläche</div><div class="highlight-text">Eine geschlossene, effizient gestaltete Bürofläche – ohne Trennung durch Treppenhäuser oder Schächte.</div></div></div>
+        <div class="highlight-card fade-in fade-in-delay-1"><div class="highlight-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9,22 9,12 15,12 15,22"/></svg></div><div><div class="highlight-title">19 Büroräume</div><div class="highlight-text">Geschlossene Einzelbüros, individuell nutzbar als Arbeitszimmer, Besprechungsräume oder Projekträume.</div></div></div>
+        <div class="highlight-card fade-in fade-in-delay-2"><div class="highlight-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/></svg></div><div><div class="highlight-title">Sitzungszimmer</div><div class="highlight-text">Dedizierte Konferenzräume für interne Meetings und Kundentermine in repräsentativem Umfeld.</div></div></div>
+        <div class="highlight-card fade-in fade-in-delay-3"><div class="highlight-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg></div><div><div class="highlight-title">Flexible Raumaufteilung</div><div class="highlight-text">Von klassischer Büroorganisation bis zum modernen Open-Space – ohne bauliche Eingriffe realisierbar.</div></div></div>
+        <div class="highlight-card fade-in"><div class="highlight-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/></svg></div><div><div class="highlight-title">Grosszügige Fensterflächen</div><div class="highlight-text">Fensterfronten auf mehreren Gebäudeseiten – natürliche Belichtung aus verschiedenen Richtungen.</div></div></div>
+        <div class="highlight-card fade-in fade-in-delay-1"><div class="highlight-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg></div><div><div class="highlight-title">Moderne LED-Beleuchtung</div><div class="highlight-text">Hochwertiges, energieeffizientes LED-System für optimale Ausleuchtung aller Arbeitsbereiche.</div></div></div>
+        <div class="highlight-card fade-in fade-in-delay-2"><div class="highlight-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></div><div><div class="highlight-title">Raumhöhe bis 2.74 m</div><div class="highlight-text">Lichte Raumhöhen von 2.53–2.74 m im Hauptbereich schaffen ein grosszügiges Raumgefühl.</div></div></div>
+        <div class="highlight-card fade-in fade-in-delay-3"><div class="highlight-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 21V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v16"/></svg></div><div><div class="highlight-title">Warenlift 3'000 kg</div><div class="highlight-text">Direkter Zugang zum Warenlift – ideal für Materiallieferungen und logistische Bedürfnisse.</div></div></div>
+        <div class="highlight-card fade-in"><div class="highlight-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="5" y="2" width="14" height="20" rx="2"/></svg></div><div><div class="highlight-title">Zwei Personenlifte</div><div class="highlight-text">Zwei unabhängige Lifte gewährleisten reibungslose Erschliessung auch bei hohem Personenaufkommen.</div></div></div>
+        <div class="highlight-card fade-in fade-in-delay-1"><div class="highlight-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 7H4a2 2 0 00-2 2v6a2 2 0 002 2h16a2 2 0 002-2V9a2 2 0 00-2-2z"/><circle cx="12" cy="12" r="2"/></svg></div><div><div class="highlight-title">Lagerfläche inkl.</div><div class="highlight-text">Separater Lagerraum auf gleicher Etage – für Archivierung, Materialien oder ergänzende Nutzung.</div></div></div>
+        <div class="highlight-card fade-in fade-in-delay-2"><div class="highlight-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div><div><div class="highlight-title">Hochwertiger Innenausbau</div><div class="highlight-text">Sehr guter Ausbaustandard – repräsentativ für anspruchsvolle Unternehmensstandorte.</div></div></div>
+        <div class="highlight-card fade-in fade-in-delay-3"><div class="highlight-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg></div><div><div class="highlight-title">Sofortiger Bezug</div><div class="highlight-text">Per sofort verfügbar – für Unternehmen, die schnell handeln und ohne Wartezeit starten möchten.</div></div></div>
       </div>
     </div>
   </section>
 
-  <!-- ===== NUTZUNGSMÖGLICHKEITEN ===== -->
   <section class="nutzung" id="nutzung">
     <div class="container">
-      <div class="section-header fade-in">
-        <div class="section-label">Nutzung</div>
-        <h2 class="section-title">Nutzungsmöglichkeiten</h2>
-      </div>
-      <p class="nutzung-text fade-in">
-        Die Bürofläche an der Josefstrasse 59 vereint strukturelle Flexibilität mit einer Ausbauqualität, die hohen repräsentativen Ansprüchen gerecht wird. Unternehmen mit komplexen Raumstrukturen profitieren von der klaren Gliederung in geschlossene Raumeinheiten, die eine funktionstrennte Nutzung ohne bauliche Eingriffe erlaubt. Gleichzeitig bietet die Fläche die architektonische Offenheit, moderne kollaborative Arbeitsformen zu integrieren. Die Kombination aus zentraler Lage, hervorragender ÖV-Anbindung und hochwertiger Infrastruktur schafft die Voraussetzungen für einen Unternehmensstandort, der Mitarbeitende überzeugt und Kunden beeindruckt. Eine Erweiterung um weitere 825 m² auf demselben Stockwerk ist möglich – ein seltenes Merkmal, das langfristige Planungssicherheit für wachsende Organisationen bietet.
-      </p>
+      <div class="section-header fade-in"><div class="section-label">Nutzung</div><h2 class="section-title">Nutzungsmöglichkeiten</h2></div>
+      <p class="nutzung-text fade-in">Die Bürofläche an der Josefstrasse 59 vereint strukturelle Flexibilität mit einer Ausbauqualität, die hohen repräsentativen Ansprüchen gerecht wird. Unternehmen profitieren von der klaren Gliederung in geschlossene Raumeinheiten, die eine funktionstrennte Nutzung ohne bauliche Eingriffe erlaubt. Die Kombination aus zentraler Lage, hervorragender ÖV-Anbindung und hochwertiger Infrastruktur schafft die Voraussetzungen für einen Unternehmensstandort, der Mitarbeitende überzeugt und Kunden beeindruckt. Eine Erweiterung um weitere 825 m² auf demselben Stockwerk ist möglich.</p>
       <div class="nutzung-tags fade-in fade-in-delay-1">
-        <span class="nutzung-tag">Beratungsunternehmen</span>
-        <span class="nutzung-tag">Finanzdienstleister</span>
-        <span class="nutzung-tag">Treuhand & Revisionsgesellschaften</span>
-        <span class="nutzung-tag">Anwaltskanzleien</span>
-        <span class="nutzung-tag">Tech-Unternehmen</span>
-        <span class="nutzung-tag">Agenturen</span>
-        <span class="nutzung-tag">Start-up & Scale-up</span>
-        <span class="nutzung-tag">Headquarters</span>
-        <span class="nutzung-tag">Bildungsanbieter</span>
-        <span class="nutzung-tag">Projektorganisationen</span>
-        <span class="nutzung-tag">NGO & Stiftungen</span>
-        <span class="nutzung-tag">Verbände</span>
+        <span class="nutzung-tag">Beratungsunternehmen</span><span class="nutzung-tag">Finanzdienstleister</span><span class="nutzung-tag">Treuhand & Revisionsgesellschaften</span><span class="nutzung-tag">Anwaltskanzleien</span><span class="nutzung-tag">Tech-Unternehmen</span><span class="nutzung-tag">Agenturen</span><span class="nutzung-tag">Start-up & Scale-up</span><span class="nutzung-tag">Headquarters</span><span class="nutzung-tag">Bildungsanbieter</span><span class="nutzung-tag">Projektorganisationen</span><span class="nutzung-tag">NGO & Stiftungen</span><span class="nutzung-tag">Verbände</span>
       </div>
     </div>
   </section>
 
-  <!-- ===== MIKRO-LAGE ===== -->
   <section class="mikrolage" id="lage">
     <div class="container">
       <div class="mikrolage-grid">
@@ -1026,22 +411,22 @@
           <h2 class="section-title">Mikro-Lage: Zürich-West</h2>
           <div class="divider" style="margin-bottom:2rem"></div>
           <div class="mikrolage-text">
-            <p>Zürich-West hat sich in den vergangenen zwei Jahrzehnten vom Industrie- zum urbanen Innovationsquartier gewandelt. Das Quartier rund um die Josefstrasse verkörpert diesen Wandel wie kein anderes in der Stadt: hohe architektonische Qualität, lebendige Erdgeschossnutzungen und ein Publikum, das Urbanität und Professionalität verbindet.</p>
-            <p>Das Angebot im unmittelbaren Umfeld ist dicht und vielfältig: Renommierte Restaurants, Kaffeebars und Delikatessenläden prägen das Quartiersbild und bieten Mitarbeitenden und Besuchenden eine attraktive Infrastruktur. Mehrere Fitnessanlagen, Hotels der gehobenen Kategorie sowie eine breite Palette an Dienstleistungsbetrieben – von Co-Working bis Fahrradservice – befinden sich in unmittelbarer Nähe.</p>
-            <p>Der Standort positioniert Ihr Unternehmen in einem Umfeld, das Qualität ausstrahlt und das Wohlbefinden Ihrer Mitarbeitenden fördert – ein wichtiger Faktor in der heutigen Arbeitswelt.</p>
+            <p>Zürich-West hat sich in den vergangenen zwei Jahrzehnten vom Industrie- zum urbanen Innovationsquartier gewandelt. Das Quartier rund um die Josefstrasse verkörpert diesen Wandel: hohe architektonische Qualität, lebendige Erdgeschossnutzungen und ein Publikum, das Urbanität und Professionalität verbindet.</p>
+            <p>Das Angebot im unmittelbaren Umfeld ist dicht und vielfältig: Renommierte Restaurants, Kaffeebars und Delikatessenläden, Fitnessanlagen, Hotels der gehobenen Kategorie sowie eine breite Palette an Dienstleistungsbetrieben befinden sich in unmittelbarer Nähe.</p>
+            <p>Der Standort positioniert Ihr Unternehmen in einem Umfeld, das Qualität ausstrahlt und das Wohlbefinden Ihrer Mitarbeitenden fördert.</p>
           </div>
         </div>
         <div class="fade-in fade-in-delay-2">
           <div class="poi-grid">
             <div class="poi-item"><div class="poi-dot"></div><span>Restaurants & Cafés</span></div>
             <div class="poi-item"><div class="poi-dot"></div><span>Fitnessanlagen</span></div>
-            <div class="poi-item"><div class="poi-dot"></div><span>Hotels (Marriott, nhow, ...)</span></div>
+            <div class="poi-item"><div class="poi-dot"></div><span>Hotels (Marriott, nhow)</span></div>
             <div class="poi-item"><div class="poi-dot"></div><span>Einkaufsmöglichkeiten</span></div>
             <div class="poi-item"><div class="poi-dot"></div><span>Co-Working-Angebote</span></div>
             <div class="poi-item"><div class="poi-dot"></div><span>Velowerkstätten</span></div>
             <div class="poi-item"><div class="poi-dot"></div><span>Banken & Dienstleister</span></div>
             <div class="poi-item"><div class="poi-dot"></div><span>Veranstaltungsorte</span></div>
-            <div class="poi-item"><div class="poi-dot"></div><span>Limmatraum / Freiraumqualität</span></div>
+            <div class="poi-item"><div class="poi-dot"></div><span>Limmatraum / Freiraum</span></div>
             <div class="poi-item"><div class="poi-dot"></div><span>Gastronomie & Nachtleben</span></div>
           </div>
         </div>
@@ -1049,150 +434,56 @@
     </div>
   </section>
 
-  <!-- ===== MAKRO-LAGE ===== -->
   <section class="makrolage" id="makrolage">
     <div class="container">
-      <div class="section-header fade-in">
-        <div class="section-label">Erreichbarkeit</div>
-        <h2 class="section-title">Makro-Lage & Verbindungen</h2>
-      </div>
+      <div class="section-header fade-in"><div class="section-label">Erreichbarkeit</div><h2 class="section-title">Makro-Lage & Verbindungen</h2></div>
       <div class="travel-grid fade-in fade-in-delay-1">
-        <div class="travel-card">
-          <div class="travel-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg></div>
-          <div><div class="travel-dest">Zürich Hauptbahnhof</div><div class="travel-time">~10 Min.</div><div class="travel-mode">zu Fuss · 5 Min. Tram</div></div>
-        </div>
-        <div class="travel-card">
-          <div class="travel-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 18v-6a9 9 0 0118 0v6"/><path d="M21 19a2 2 0 01-2 2h-1a2 2 0 01-2-2v-3a2 2 0 012-2h3zM3 19a2 2 0 002 2h1a2 2 0 002-2v-3a2 2 0 00-2-2H3z"/></svg></div>
-          <div><div class="travel-dest">Bhf. Hardbrücke (S-Bahn)</div><div class="travel-time">~8 Min.</div><div class="travel-mode">zu Fuss</div></div>
-        </div>
-        <div class="travel-card">
-          <div class="travel-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81a19.79 19.79 0 01-3.07-8.67A2 2 0 012.18 1h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L6.91 8.09a16 16 0 006 6l1.45-1.45a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 14.92z"/></svg></div>
-          <div><div class="travel-dest">Flughafen Zürich</div><div class="travel-time">~25 Min.</div><div class="travel-mode">S-Bahn ab Hardbrücke</div></div>
-        </div>
-        <div class="travel-card">
-          <div class="travel-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="1" y="3" width="15" height="13" rx="1"/><path d="M16 8h4l3 5v3h-7V8z"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg></div>
-          <div><div class="travel-dest">Autobahn A3/A1</div><div class="travel-time">~5 Min.</div><div class="travel-mode">Anschluss Zürich-West</div></div>
-        </div>
-        <div class="travel-card">
-          <div class="travel-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg></div>
-          <div><div class="travel-dest">Tram 4 & 13</div><div class="travel-time">Direkt vor Ort</div><div class="travel-mode">Haltestelle Josefstrasse</div></div>
-        </div>
-        <div class="travel-card">
-          <div class="travel-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/></svg></div>
-          <div><div class="travel-dest">Bus 32 / Nachtbus</div><div class="travel-time">Unmittelbare Nähe</div><div class="travel-mode">Mehrere Verbindungen</div></div>
-        </div>
-        <div class="travel-card">
-          <div class="travel-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/></svg></div>
-          <div><div class="travel-dest">Einkauf (Migros, Coop etc.)</div><div class="travel-time">~3–5 Min.</div><div class="travel-mode">zu Fuss / im Quartier</div></div>
-        </div>
-        <div class="travel-card">
-          <div class="travel-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s-8-4.5-8-11.8A8 8 0 0112 2a8 8 0 018 8.2c0 7.3-8 11.8-8 11.8z"/><circle cx="12" cy="10" r="3"/></svg></div>
-          <div><div class="travel-dest">Hotels (nhow, ibis, ...)</div><div class="travel-time">~3–8 Min.</div><div class="travel-mode">zu Fuss</div></div>
-        </div>
-        <div class="travel-card">
-          <div class="travel-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 8h1a4 4 0 010 8h-1"/><path d="M2 8h16v9a4 4 0 01-4 4H6a4 4 0 01-4-4V8z"/><line x1="6" y1="1" x2="6" y2="4"/><line x1="10" y1="1" x2="10" y2="4"/><line x1="14" y1="1" x2="14" y2="4"/></svg></div>
-          <div><div class="travel-dest">Restaurants & Cafés</div><div class="travel-time">~1–5 Min.</div><div class="travel-mode">Grosses Angebot im Quartier</div></div>
-        </div>
+        <div class="travel-card"><div class="travel-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg></div><div><div class="travel-dest">Zürich Hauptbahnhof</div><div class="travel-time">~10 Min.</div><div class="travel-mode">zu Fuss · 5 Min. Tram</div></div></div>
+        <div class="travel-card"><div class="travel-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 18v-6a9 9 0 0118 0v6"/><path d="M21 19a2 2 0 01-2 2h-1a2 2 0 01-2-2v-3a2 2 0 012-2h3zM3 19a2 2 0 002 2h1a2 2 0 002-2v-3a2 2 0 00-2-2H3z"/></svg></div><div><div class="travel-dest">Bhf. Hardbrücke (S-Bahn)</div><div class="travel-time">~8 Min.</div><div class="travel-mode">zu Fuss</div></div></div>
+        <div class="travel-card"><div class="travel-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81a19.79 19.79 0 01-3.07-8.67A2 2 0 012.18 1h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L6.91 8.09a16 16 0 006 6l1.45-1.45a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 14.92z"/></svg></div><div><div class="travel-dest">Flughafen Zürich</div><div class="travel-time">~25 Min.</div><div class="travel-mode">S-Bahn ab Hardbrücke</div></div></div>
+        <div class="travel-card"><div class="travel-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="1" y="3" width="15" height="13" rx="1"/><path d="M16 8h4l3 5v3h-7V8z"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg></div><div><div class="travel-dest">Autobahn A3/A1</div><div class="travel-time">~5 Min.</div><div class="travel-mode">Anschluss Zürich-West</div></div></div>
+        <div class="travel-card"><div class="travel-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg></div><div><div class="travel-dest">Tram 4 & 13</div><div class="travel-time">Direkt vor Ort</div><div class="travel-mode">Haltestelle Josefstrasse</div></div></div>
+        <div class="travel-card"><div class="travel-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/></svg></div><div><div class="travel-dest">Bus 32 / Nachtbus</div><div class="travel-time">Unmittelbare Nähe</div><div class="travel-mode">Mehrere Verbindungen</div></div></div>
+        <div class="travel-card"><div class="travel-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/></svg></div><div><div class="travel-dest">Einkauf (Migros, Coop)</div><div class="travel-time">~3–5 Min.</div><div class="travel-mode">zu Fuss / im Quartier</div></div></div>
+        <div class="travel-card"><div class="travel-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s-8-4.5-8-11.8A8 8 0 0112 2a8 8 0 018 8.2c0 7.3-8 11.8-8 11.8z"/><circle cx="12" cy="10" r="3"/></svg></div><div><div class="travel-dest">Hotels (nhow, ibis)</div><div class="travel-time">~3–8 Min.</div><div class="travel-mode">zu Fuss</div></div></div>
+        <div class="travel-card"><div class="travel-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 8h1a4 4 0 010 8h-1"/><path d="M2 8h16v9a4 4 0 01-4 4H6a4 4 0 01-4-4V8z"/><line x1="6" y1="1" x2="6" y2="4"/><line x1="10" y1="1" x2="10" y2="4"/><line x1="14" y1="1" x2="14" y2="4"/></svg></div><div><div class="travel-dest">Restaurants & Cafés</div><div class="travel-time">~1–5 Min.</div><div class="travel-mode">Grosses Angebot im Quartier</div></div></div>
       </div>
-      <div class="erreichbarkeit fade-in fade-in-delay-2">
-        Der Standort Josefstrasse 59 gehört zu den <strong>am besten erschlossenen Bürolagen Zürichs</strong>. Die unmittelbare Nähe zum Bahnhof Hardbrücke mit direkten S-Bahn-Verbindungen in alle Agglomerationsgemeinden sowie die Tramverbindungen 4 und 13 Richtung Zürich HB und Hauptbahnhof ermöglichen eine schnelle Erreichbarkeit aus dem gesamten Wirtschaftsraum Zürich. Die Anbindung an den Flughafen Zürich Kloten via S-Bahn ist ohne Umsteigen möglich. Für Mitarbeitende mit individuellem Pendelweg bietet die nahe Autobahnanschluss West eine komfortable Zufahrt; Veloabstellplätze im Innenhof ergänzen das Angebot für nachhaltige Fortbewegung.
-      </div>
+      <div class="erreichbarkeit fade-in fade-in-delay-2">Der Standort Josefstrasse 59 gehört zu den <strong>am besten erschlossenen Bürolagen Zürichs</strong>. Die unmittelbare Nähe zum Bahnhof Hardbrücke mit direkten S-Bahn-Verbindungen sowie die Tramverbindungen 4 und 13 ermöglichen eine schnelle Erreichbarkeit aus dem gesamten Wirtschaftsraum Zürich. Die Anbindung an den Flughafen Zürich Kloten via S-Bahn ist ohne Umsteigen möglich.</div>
     </div>
   </section>
 
-  <!-- ===== KARTE ===== -->
+  <!-- KARTE: saubere Google Maps iframe, keine info-box -->
   <section class="map-section" id="karte">
-    <div class="map-overlay">
-      <div class="map-info-box">
-        <div class="map-info-title">Standort</div>
-        <div class="map-info-address">Josefstrasse 59<br>8005 Zürich</div>
-        <span class="map-info-tag">825 m² · 1. OG · Sofort verfügbar</span>
-      </div>
-    </div>
-  </section>
-@@@REPLACE@@@
-      <iframe
-        id="map"
-        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2702.3!2d8.5183!3d47.3829!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47900a121f8be235%3A0xb84fbe4e8bb5d79c!2sJosefstrasse%2059%2C%208005%20Z%C3%BCrich!5e0!3m2!1sde!2sch!4v1700000000000!5m2!1sde!2sch"
-        width="100%" height="520"
-        style="border:0;display:block;filter:brightness(0.97) contrast(1.02);"
-        allowfullscreen=""
-        loading="lazy"
-        referrerpolicy="no-referrer-when-downgrade"
-        title="Standort Josefstrasse 59, 8005 Zürich">
-      </iframe>
-    </div>
-  </section>
-@@@REPLACE@@@
-      <div class="map-info-box">
-        <div class="map-info-title">Standort</div>
-        <div class="map-info-address">Josefstrasse 59<br>8005 Zürich</div>
-        <span class="map-info-tag">825 m² · 1. OG · Sofort verfügbar</span>
-      </div>
-    </div>
+    <iframe id="map"
+      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2702.3!2d8.5183!3d47.3829!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47900a121f8be235%3A0xb84fbe4e8bb5d79c!2sJosefstrasse%2059%2C%208005%20Z%C3%BCrich!5e0!3m2!1sde!2sch!4v1700000000000!5m2!1sde!2sch"
+      allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"
+      title="Standort Josefstrasse 59, 8005 Zürich">
+    </iframe>
   </section>
 
-  <!-- ===== MIETKONDITIONEN ===== -->
   <section class="konditionen" id="konditionen">
     <div class="container">
-      <div class="section-header fade-in">
-        <div class="section-label">Konditionen</div>
-        <h2 class="section-title">Mietkonditionen</h2>
-      </div>
+      <div class="section-header fade-in"><div class="section-label">Konditionen</div><h2 class="section-title">Mietkonditionen</h2></div>
       <div class="pricing-wrap fade-in fade-in-delay-1">
-        <div class="pricing-header">
-          <h3>Josefstrasse 59, 8005 Zürich · 825 m²</h3>
-          <div class="pricing-badge">Verfügbar per sofort</div>
-        </div>
+        <div class="pricing-header"><h3>Josefstrasse 59, 8005 Zürich · 825 m²</h3><div class="pricing-badge">Verfügbar per sofort</div></div>
         <div class="pricing-body">
-          <div class="pricing-row">
-            <span class="pricing-key">Mietfläche</span>
-            <span class="pricing-val">825 m² (zusammenhängend, 1. OG)</span>
-          </div>
-          <div class="pricing-row">
-            <span class="pricing-key">Nettomietzins</span>
-            <span class="pricing-val highlight-val">CHF 330 / m² / Jahr</span>
-          </div>
-          <div class="pricing-row">
-            <span class="pricing-key">Nebenkosten (Akonto)</span>
-            <span class="pricing-val">CHF 35 / m² / Jahr</span>
-          </div>
-          <div class="pricing-row">
-            <span class="pricing-key">Bruttomiete (inkl. NK)</span>
-            <span class="pricing-val highlight-val">CHF 365 / m² / Jahr</span>
-          </div>
-          <div class="pricing-row">
-            <span class="pricing-key">Mietdauer</span>
-            <span class="pricing-val">5 Jahre fix</span>
-          </div>
-          <div class="pricing-row">
-            <span class="pricing-key">Verfügbarkeit</span>
-            <span class="pricing-val">Per sofort oder nach Vereinbarung</span>
-          </div>
-          <div class="pricing-row">
-            <span class="pricing-key">Erweiterungsmöglichkeit</span>
-            <span class="pricing-val">Weitere ca. 825 m² auf gleicher Etage möglich</span>
-          </div>
-          <div class="pricing-row">
-            <span class="pricing-key">Anmietung</span>
-            <span class="pricing-val">Ausschliesslich geschossweise</span>
-          </div>
+          <div class="pricing-row"><span class="pricing-key">Mietfläche</span><span class="pricing-val">825 m² (zusammenhängend, 1. OG)</span></div>
+          <div class="pricing-row"><span class="pricing-key">Nettomietzins</span><span class="pricing-val highlight-val">CHF 330 / m² / Jahr</span></div>
+          <div class="pricing-row"><span class="pricing-key">Nebenkosten (Akonto)</span><span class="pricing-val">CHF 35 / m² / Jahr</span></div>
+          <div class="pricing-row"><span class="pricing-key">Bruttomiete (inkl. NK)</span><span class="pricing-val highlight-val">CHF 365 / m² / Jahr</span></div>
+          <div class="pricing-row"><span class="pricing-key">Mietdauer</span><span class="pricing-val">5 Jahre fix</span></div>
+          <div class="pricing-row"><span class="pricing-key">Verfügbarkeit</span><span class="pricing-val">Per sofort oder nach Vereinbarung</span></div>
+          <div class="pricing-row"><span class="pricing-key">Erweiterungsmöglichkeit</span><span class="pricing-val">Weitere ca. 825 m² auf gleicher Etage möglich</span></div>
+          <div class="pricing-row"><span class="pricing-key">Anmietung</span><span class="pricing-val">Ausschliesslich geschossweise</span></div>
           <div class="pricing-total">
-            <div>
-              <div class="pricing-total-label">Jahresmiete brutto (inkl. NK)</div>
-              <div class="pricing-total-sub">CHF 365 × 825 m²</div>
-            </div>
-            <div style="text-align:right">
-              <div class="pricing-total-val">CHF 301'125.–</div>
-              <div class="pricing-total-sub">CHF 25'094.– / Monat</div>
-            </div>
+            <div><div class="pricing-total-label">Jahresmiete brutto (inkl. NK)</div><div class="pricing-total-sub">CHF 365 × 825 m²</div></div>
+            <div style="text-align:right"><div class="pricing-total-val">CHF 301'125.–</div><div class="pricing-total-sub">CHF 25'094.– / Monat</div></div>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ===== WARUM DIESER STANDORT ===== -->
   <section class="why" id="why">
     <div class="container">
       <div class="why-grid">
@@ -1202,139 +493,79 @@
           <div class="divider" style="margin-bottom:2rem"></div>
           <div class="why-text">
             <p>Wenige Adressen in Zürich vereinen urbane Präsenz, funktionale Exzellenz und langfristige Standortsicherheit auf einem Niveau wie die Josefstrasse 59. Was dieses Objekt auszeichnet, ist nicht allein die Lage – sondern die Verbindung aus repräsentativem Auftritt, moderner Arbeitsinfrastruktur und einem Quartier, das Qualität als Standard versteht.</p>
-            <p>Für Unternehmen, die ihren Standort als Ausdruck ihrer Unternehmenskultur verstehen, bietet diese Fläche einen seltenen Ausgangspunkt: zusammenhängend, hochwertig ausgebaut, sofort bezugsbereit und mit einer Erweiterungsoption, die mittelfristische Wachstumsszenarien zulässt, ohne den Betrieb zu unterbrechen.</p>
-            <p>Zürich-West ist kein beliebiger Bürostandort. Es ist das Quartier, in dem Unternehmen sichtbar werden, die Kompetenz und Zeitgeist verbinden – und es ist der Standort, an dem die besten Talente des Stadtrats arbeiten möchten.</p>
+            <p>Für Unternehmen, die ihren Standort als Ausdruck ihrer Unternehmenskultur verstehen, bietet diese Fläche einen seltenen Ausgangspunkt: zusammenhängend, hochwertig ausgebaut, sofort bezugsbereit und mit einer Erweiterungsoption, die mittelfristige Wachstumsszenarien zulässt, ohne den Betrieb zu unterbrechen.</p>
           </div>
         </div>
         <div class="why-points fade-in fade-in-delay-2">
-          <div class="why-point">
-            <div class="why-point-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div>
-            <div><div class="why-point-title">Sofortige Verfügbarkeit</div><div class="why-point-text">Bezug per sofort – ohne Wartezeiten, ohne Umbau-Rückstau.</div></div>
-          </div>
-          <div class="why-point">
-            <div class="why-point-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
-            <div><div class="why-point-title">Repräsentativer Unternehmensstandort</div><div class="why-point-text">Adresse und Erscheinungsbild überzeugen Kunden und Mitarbeitende gleichermassen.</div></div>
-          </div>
-          <div class="why-point">
-            <div class="why-point-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/></svg></div>
-            <div><div class="why-point-title">Optimale ÖV-Erschliessung</div><div class="why-point-text">Tram, S-Bahn und Flughafenanschluss in unmittelbarer Nähe.</div></div>
-          </div>
-          <div class="why-point">
-            <div class="why-point-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg></div>
-            <div><div class="why-point-title">Strategische Erweiterungsoption</div><div class="why-point-text">Weitere 825 m² auf gleicher Etage – Wachstum ohne Standortwechsel.</div></div>
-          </div>
-          <div class="why-point">
-            <div class="why-point-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg></div>
-            <div><div class="why-point-title">Planungssicherheit</div><div class="why-point-text">5-jähriger Festmietvertrag – stabile Grundlage für langfristige Investitionsentscheide.</div></div>
-          </div>
+          <div class="why-point"><div class="why-point-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div><div><div class="why-point-title">Sofortige Verfügbarkeit</div><div class="why-point-text">Bezug per sofort – ohne Wartezeiten, ohne Umbau-Rückstau.</div></div></div>
+          <div class="why-point"><div class="why-point-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div><div><div class="why-point-title">Repräsentativer Unternehmensstandort</div><div class="why-point-text">Adresse und Erscheinungsbild überzeugen Kunden und Mitarbeitende gleichermassen.</div></div></div>
+          <div class="why-point"><div class="why-point-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/></svg></div><div><div class="why-point-title">Optimale ÖV-Erschliessung</div><div class="why-point-text">Tram, S-Bahn und Flughafenanschluss in unmittelbarer Nähe.</div></div></div>
+          <div class="why-point"><div class="why-point-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg></div><div><div class="why-point-title">Strategische Erweiterungsoption</div><div class="why-point-text">Weitere 825 m² auf gleicher Etage – Wachstum ohne Standortwechsel.</div></div></div>
+          <div class="why-point"><div class="why-point-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg></div><div><div class="why-point-title">Planungssicherheit</div><div class="why-point-text">5-jähriger Festmietvertrag – stabile Grundlage für langfristige Investitionsentscheide.</div></div></div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ===== KONTAKT ===== -->
   <section class="kontakt" id="kontakt">
     <div class="container">
-      <div class="section-header fade-in">
-        <div class="section-label">Kontakt</div>
-        <h2 class="section-title">Besichtigung vereinbaren</h2>
-      </div>
-      <p class="kontakt-lead fade-in">Überzeugen Sie sich vor Ort von der Qualität dieser Bürofläche. Wir begleiten Sie durch die Räumlichkeiten und beantworten Ihre Fragen persönlich. Nehmen Sie unverbindlich Kontakt auf.</p>
+      <div class="section-header fade-in"><div class="section-label">Kontakt</div><h2 class="section-title">Besichtigung vereinbaren</h2></div>
+      <p class="kontakt-lead fade-in">Überzeugen Sie sich vor Ort von der Qualität dieser Bürofläche. Wir begleiten Sie durch die Räumlichkeiten und beantworten Ihre Fragen persönlich.</p>
       <div class="kontakt-grid">
         <div class="contact-person fade-in">
           <div class="contact-person-label">Ihr Ansprechpartner</div>
-          <div class="contact-avatar" id="contactAvatarInitials">–</div>
-          <div class="contact-name" id="contactName">[Ihr Name]</div>
-          <div class="contact-role" id="contactRole">[Funktion / Position]</div>
-          <div class="contact-detail">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81a19.79 19.79 0 01-3.07-8.67A2 2 0 012.18 1h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L6.91 8.09a16 16 0 006 6l1.45-1.45a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 14.92z"/></svg>
-            <a href="tel:+410000000000" id="contactPhone">+41 00 000 00 00</a>
-          </div>
-          <div class="contact-detail">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-            <a href="mailto:kontakt@example.com" id="contactEmail">kontakt@example.com</a>
-          </div>
+          <div class="contact-avatar">–</div>
+          <div class="contact-name">[Ihr Name]</div>
+          <div class="contact-role">[Funktion / Position]</div>
+          <div class="contact-detail"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81a19.79 19.79 0 01-3.07-8.67A2 2 0 012.18 1h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L6.91 8.09a16 16 0 006 6l1.45-1.45a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 14.92z"/></svg><a href="tel:+410000000000">+41 00 000 00 00</a></div>
+          <div class="contact-detail"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg><a href="mailto:kontakt@example.com">kontakt@example.com</a></div>
           <div class="contact-divider"></div>
           <div style="color:rgba(255,255,255,0.4);font-size:0.78rem;margin-bottom:0.75rem;">Swiss Prime Site Immobilien AG<br>Hardstrasse 201 · 8005 Zürich</div>
-          <a href="#" class="contact-linkedin" target="_blank">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg>
-            LinkedIn-Profil ansehen
-          </a>
+          <a href="#" class="contact-linkedin" target="_blank"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg>LinkedIn-Profil ansehen</a>
         </div>
         <div class="fade-in fade-in-delay-2">
           <form class="contact-form" onsubmit="submitForm(event)">
             <div class="form-row">
-              <div class="form-group">
-                <label for="fname">Vor- & Nachname *</label>
-                <input type="text" id="fname" name="name" placeholder="Max Muster" required>
-              </div>
-              <div class="form-group">
-                <label for="fcompany">Unternehmen</label>
-                <input type="text" id="fcompany" name="company" placeholder="Muster AG">
-              </div>
+              <div class="form-group"><label for="fname">Vor- & Nachname *</label><input type="text" id="fname" name="name" placeholder="Max Muster" required></div>
+              <div class="form-group"><label for="fcompany">Unternehmen</label><input type="text" id="fcompany" name="company" placeholder="Muster AG"></div>
             </div>
             <div class="form-row">
-              <div class="form-group">
-                <label for="femail">E-Mail-Adresse *</label>
-                <input type="email" id="femail" name="email" placeholder="m.muster@beispiel.ch" required>
-              </div>
-              <div class="form-group">
-                <label for="fphone">Telefonnummer</label>
-                <input type="tel" id="fphone" name="phone" placeholder="+41 79 000 00 00">
-              </div>
+              <div class="form-group"><label for="femail">E-Mail-Adresse *</label><input type="email" id="femail" name="email" placeholder="m.muster@beispiel.ch" required></div>
+              <div class="form-group"><label for="fphone">Telefonnummer</label><input type="tel" id="fphone" name="phone" placeholder="+41 79 000 00 00"></div>
             </div>
-            <div class="form-group">
-              <label for="fmessage">Ihre Nachricht</label>
-              <textarea id="fmessage" name="message" placeholder="Guten Tag, ich interessiere mich für die Bürofläche und würde gerne einen Besichtigungstermin vereinbaren…">Guten Tag, ich interessiere mich für die Bürofläche an der Josefstrasse 59 und würde gerne einen unverbindlichen Besichtigungstermin vereinbaren.</textarea>
-            </div>
-            <button type="submit" class="form-submit">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
-              Jetzt unverbindlich Besichtigung vereinbaren
-            </button>
-            <p class="form-note">* Pflichtfelder. Ihre Angaben werden vertraulich behandelt und ausschliesslich für die Bearbeitung Ihrer Anfrage verwendet.</p>
+            <div class="form-group"><label for="fmessage">Ihre Nachricht</label><textarea id="fmessage" name="message">Guten Tag, ich interessiere mich für die Bürofläche an der Josefstrasse 59 und würde gerne einen unverbindlichen Besichtigungstermin vereinbaren.</textarea></div>
+            <button type="submit" class="form-submit"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>Jetzt unverbindlich Besichtigung vereinbaren</button>
+            <p class="form-note">* Pflichtfelder. Ihre Angaben werden vertraulich behandelt.</p>
           </form>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ===== FOOTER ===== -->
   <footer class="footer">
     <div class="footer-inner">
       <div class="footer-copy">© 2025 Swiss Prime Site Immobilien AG · Josefstrasse 59, 8005 Zürich</div>
       <div class="footer-links">
-        <a href="#">Impressum</a>
-        <a href="#">Datenschutz</a>
+        <a href="#">Impressum</a><a href="#">Datenschutz</a>
         <a href="https://cdn.flatfox.ch/listings/v2/f046im/4002916928/document/cde4f094ee9fe7aa7faf41a7fa2245db.pdf" target="_blank">Exposé (PDF)</a>
       </div>
     </div>
   </footer>
 
-
   <script>
-    // ===== HERO BG PARALLAX =====
     const heroBg = document.getElementById('heroBg');
-    window.addEventListener('scroll', () => {
-      const y = window.scrollY;
-      heroBg.style.transform = `scale(1.05) translateY(${y * 0.2}px)`;
-    }, { passive: true });
+    window.addEventListener('scroll', () => { heroBg.style.transform = `scale(1.05) translateY(${window.scrollY * 0.2}px)`; }, { passive: true });
 
-    // ===== MOBILE NAV =====
     const hamburger = document.getElementById('hamburger');
     const mobileMenu = document.getElementById('mobileMenu');
-    hamburger.addEventListener('click', () => {
-      mobileMenu.classList.toggle('open');
-    });
+    hamburger.addEventListener('click', () => mobileMenu.classList.toggle('open'));
     function closeMobileMenu() { mobileMenu.classList.remove('open'); }
 
-    // ===== INTERSECTION OBSERVER (FADE-IN) =====
-    const fadeEls = document.querySelectorAll('.fade-in');
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); } });
     }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
-    fadeEls.forEach(el => observer.observe(el));
+    document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
 
-    // ===== GALLERY LIGHTBOX =====
     const images = [
       'https://cdn.flatfox.ch/listings/v2/f046im/4002916928/image/6f43d949a0825f8d9db59f66d70cab32.jpg',
       'https://cdn.flatfox.ch/listings/v2/f046im/4002916928/image/e86a2505ebfe18aad1e2d2f1caef4ec2.jpg',
@@ -1358,44 +589,19 @@
     const lightbox = document.getElementById('lightbox');
     const lightboxImg = document.getElementById('lightboxImg');
     const lightboxCounter = document.getElementById('lightboxCounter');
-
-    function openLightbox(idx) {
-      currentIdx = idx;
-      lightboxImg.src = images[idx];
-      lightboxCounter.textContent = (idx+1) + ' / ' + images.length;
-      lightbox.classList.add('active');
-      document.body.style.overflow = 'hidden';
-    }
-    function closeLightbox() {
-      lightbox.classList.remove('active');
-      document.body.style.overflow = '';
-    }
-    function lightboxNav(dir) {
-      currentIdx = (currentIdx + dir + images.length) % images.length;
-      lightboxImg.src = images[currentIdx];
-      lightboxCounter.textContent = (currentIdx+1) + ' / ' + images.length;
-    }
+    function openLightbox(idx) { currentIdx = idx; lightboxImg.src = images[idx]; lightboxCounter.textContent = (idx+1) + ' / ' + images.length; lightbox.classList.add('active'); document.body.style.overflow = 'hidden'; }
+    function closeLightbox() { lightbox.classList.remove('active'); document.body.style.overflow = ''; }
+    function lightboxNav(dir) { currentIdx = (currentIdx + dir + images.length) % images.length; lightboxImg.src = images[currentIdx]; lightboxCounter.textContent = (currentIdx+1) + ' / ' + images.length; }
     lightbox.addEventListener('click', e => { if (e.target === lightbox) closeLightbox(); });
-    document.addEventListener('keydown', e => {
-      if (!lightbox.classList.contains('active')) return;
-      if (e.key === 'Escape') closeLightbox();
-      if (e.key === 'ArrowLeft') lightboxNav(-1);
-      if (e.key === 'ArrowRight') lightboxNav(1);
-    });
+    document.addEventListener('keydown', e => { if (!lightbox.classList.contains('active')) return; if (e.key === 'Escape') closeLightbox(); if (e.key === 'ArrowLeft') lightboxNav(-1); if (e.key === 'ArrowRight') lightboxNav(1); });
 
-
-    // ===== CONTACT FORM =====
     function submitForm(e) {
       e.preventDefault();
       const btn = e.target.querySelector('.form-submit');
       btn.innerHTML = '✓ &nbsp;Anfrage erfolgreich gesendet';
       btn.style.background = '#22c55e';
       btn.disabled = true;
-      setTimeout(() => {
-        btn.innerHTML = '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg> Jetzt unverbindlich Besichtigung vereinbaren';
-        btn.style.background = '';
-        btn.disabled = false;
-      }, 4000);
+      setTimeout(() => { btn.innerHTML = '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg> Jetzt unverbindlich Besichtigung vereinbaren'; btn.style.background = ''; btn.disabled = false; }, 4000);
     }
   </script>
 </body>
