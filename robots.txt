@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://Olivia-Angela.github.io/josefstrasse-sps-bpgcf7/sitemap.xml
